@@ -1,8 +1,6 @@
 import numpy as np
 import string
 import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
 import time
 import nltk
 from nltk.corpus import stopwords
@@ -11,15 +9,15 @@ from collections import Counter
 
 
 # 读取txt文件
-acl_2017 = "ACL\\txt\\paper_list_2017.txt"
-acl_2018 = "ACL\\txt\\paper_list_2018.txt"
-acl_2019 = "ACL\\txt\\paper_list_2019.txt"
+acl_2017_txt = "ACL\\txt\\paper_list_2017.txt"
+acl_2018_txt = "ACL\\txt\\paper_list_2018.txt"
+acl_2019_txt = "ACL\\txt\\paper_list_2019.txt"
 
-icml_2017 = "ICML\\txt\\paper_list_2017.txt"
-icml_2018 = "ICML\\txt\\paper_list_2018.txt"
-icml_2019 = "ICML\\txt\\paper_list_2019.txt"
+icml_2017_txt = "ICML\\txt\\paper_list_2017.txt"
+icml_2018_txt = "ICML\\txt\\paper_list_2018.txt"
+icml_2019_txt = "ICML\\txt\\paper_list_2019.txt"
 
-# Get
+# 获取每个主题以及出现的次数
 def getKeyCounter(txt_path):
     # 打开txt文件
     with open(txt_path, "r", encoding='UTF-8') as f:
@@ -50,8 +48,8 @@ def getKeyCounter(txt_path):
             keyword_list.append(word_list_cleaned[k])
 
     keyword_counter = Counter(keyword_list)
-    print(keyword_counter)
-    print('{} different keywords before merging'.format(len(keyword_counter)))
+    # print(keyword_counter)
+    # print('{} different keywords before merging'.format(len(keyword_counter)))
 
     # Merge duplicates: CNNs and CNN
     duplicates = []
@@ -66,7 +64,7 @@ def getKeyCounter(txt_path):
     return keyword_counter
 
 
-# Show N most common keywords and their frequencies
+# 选取出现次数最多的N个主题，并画图
 def showPicture(keyword_counter):
     num_keyowrd = 75
     keywords_counter_vis = keyword_counter.most_common(num_keyowrd)
@@ -90,7 +88,31 @@ def showPicture(keyword_counter):
     return keyword_counter
 
 
-acl_2017_key_counter = getKeyCounter(acl_2017)
-acl_2018_key_counter = getKeyCounter(acl_2018)
-acl_2019_key_counter = getKeyCounter(acl_2019)
+
+def getKeyValueArr(counter):
+    arr = []
+    for key, value in counter:
+        arr.append([key, value])
+    return arr
+
+# 获取计数器
+acl_2017_key_counter = getKeyCounter(acl_2017_txt).most_common(30)
+acl_2018_key_counter = getKeyCounter(acl_2018_txt).most_common(30)
+acl_2019_key_counter = getKeyCounter(acl_2019_txt).most_common(30)
+icml_2017_key_counter = getKeyCounter(icml_2017_txt).most_common(30)
+icml_2018_key_counter = getKeyCounter(icml_2018_txt).most_common(30)
+icml_2019_key_counter = getKeyCounter(icml_2019_txt).most_common(30)
+
+# 获取value&key的数组
+acl_2017_arr = getKeyValueArr(acl_2017_key_counter)
+acl_2018_arr = getKeyValueArr(acl_2018_key_counter)
+acl_2019_arr = getKeyValueArr(acl_2019_key_counter)
+icml_2017_arr = getKeyValueArr(icml_2017_key_counter)
+icml_2018_arr = getKeyValueArr(icml_2018_key_counter)
+icml_2019_arr = getKeyValueArr(icml_2019_key_counter)
+
+print(icml_2017_arr)
+print(icml_2018_arr)
+print(icml_2019_arr)
+
 
