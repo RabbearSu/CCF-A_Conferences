@@ -96,23 +96,90 @@ def getKeyValueArr(counter):
     return arr
 
 # 获取计数器
-acl_2017_key_counter = getKeyCounter(acl_2017_txt).most_common(30)
-acl_2018_key_counter = getKeyCounter(acl_2018_txt).most_common(30)
-acl_2019_key_counter = getKeyCounter(acl_2019_txt).most_common(30)
-icml_2017_key_counter = getKeyCounter(icml_2017_txt).most_common(30)
-icml_2018_key_counter = getKeyCounter(icml_2018_txt).most_common(30)
-icml_2019_key_counter = getKeyCounter(icml_2019_txt).most_common(30)
-
+acl_2017_key_counter = getKeyCounter(acl_2017_txt)
+acl_2018_key_counter = getKeyCounter(acl_2018_txt)
+acl_2019_key_counter = getKeyCounter(acl_2019_txt)
+icml_2017_key_counter = getKeyCounter(icml_2017_txt)
+icml_2018_key_counter = getKeyCounter(icml_2018_txt)
+icml_2019_key_counter = getKeyCounter(icml_2019_txt)
+# 获取字典
+acl_2017_dict = dict(acl_2017_key_counter)
+acl_2018_dict = dict(acl_2018_key_counter)
+acl_2019_dict = dict(acl_2017_key_counter)
+icml_2017_dict = dict(icml_2017_key_counter)
+icml_2018_dict = dict(icml_2018_key_counter)
+icml_2019_dict = dict(icml_2017_key_counter)
 # 获取value&key的数组
-acl_2017_arr = getKeyValueArr(acl_2017_key_counter)
-acl_2018_arr = getKeyValueArr(acl_2018_key_counter)
-acl_2019_arr = getKeyValueArr(acl_2019_key_counter)
-icml_2017_arr = getKeyValueArr(icml_2017_key_counter)
-icml_2018_arr = getKeyValueArr(icml_2018_key_counter)
-icml_2019_arr = getKeyValueArr(icml_2019_key_counter)
+acl_2017_arr = getKeyValueArr(acl_2017_key_counter.most_common(30))
+acl_2018_arr = getKeyValueArr(acl_2018_key_counter.most_common(30))
+acl_2019_arr = getKeyValueArr(acl_2019_key_counter.most_common(30))
+icml_2017_arr = getKeyValueArr(icml_2017_key_counter.most_common(30))
+icml_2018_arr = getKeyValueArr(icml_2018_key_counter.most_common(30))
+icml_2019_arr = getKeyValueArr(icml_2019_key_counter.most_common(30))
 
-print(icml_2017_arr)
-print(icml_2018_arr)
-print(icml_2019_arr)
+# 获取每个主题三年的数量
+def getAclTrend():
+    newArr = []
+    for item in acl_2017_arr:
+        if item[0] not in newArr:
+            newArr.append(item[0])
 
+    for item in acl_2018_arr:
+        if item[0] not in newArr:
+            newArr.append(item[0])
 
+    for item in acl_2019_arr:
+        if item[0] not in newArr:
+            newArr.append(item[0])
+
+    # print(len(newArr))
+    # print(acl_2017_dict)
+    for item in newArr:
+        if item not in acl_2017_dict.keys():
+            newArr.remove(item)
+        if item not in acl_2018_dict.keys():
+            newArr.remove(item)
+
+    newDict = {}
+    for i,item in enumerate(newArr[:10]):
+        # print(item)
+        item1 = acl_2017_dict[item]
+        item2 = acl_2018_dict[item]
+        item3 = acl_2019_dict[item]
+        newDict[item]=[item1, item2, item3]
+        # print("{}={}".format(item,[item1, item2, item3]))
+    # print(newDict)
+
+def getIcmlTrend():
+    newArr = []
+    for item in icml_2017_arr:
+        if item[0] not in newArr:
+            newArr.append(item[0])
+
+    for item in icml_2018_arr:
+        if item[0] not in newArr:
+            newArr.append(item[0])
+
+    for item in icml_2019_arr:
+        if item[0] not in newArr:
+            newArr.append(item[0])
+
+    # print(len(newArr))
+    # print(acl_2017_dict)
+    for item in newArr:
+        if item not in icml_2017_dict.keys():
+            newArr.remove(item)
+        if item not in icml_2018_dict.keys():
+            newArr.remove(item)
+
+    newDict = {}
+    for i,item in enumerate(newArr[:10]):
+        # print(item)
+        item1 = icml_2017_dict[item]
+        item2 = icml_2018_dict[item]
+        item3 = icml_2019_dict[item]
+        newDict[item]=[item1, item2, item3]
+        # print("{}={}".format(item,[item1, item2, item3]))
+    # print(newDict)
+
+getIcmlTrend()
