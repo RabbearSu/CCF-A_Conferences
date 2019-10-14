@@ -105,10 +105,10 @@ icml_2019_key_counter = getKeyCounter(icml_2019_txt)
 # 获取字典
 acl_2017_dict = dict(acl_2017_key_counter)
 acl_2018_dict = dict(acl_2018_key_counter)
-acl_2019_dict = dict(acl_2017_key_counter)
+acl_2019_dict = dict(acl_2019_key_counter)
 icml_2017_dict = dict(icml_2017_key_counter)
 icml_2018_dict = dict(icml_2018_key_counter)
-icml_2019_dict = dict(icml_2017_key_counter)
+icml_2019_dict = dict(icml_2019_key_counter)
 # 获取value&key的数组
 acl_2017_arr = getKeyValueArr(acl_2017_key_counter.most_common(30))
 acl_2018_arr = getKeyValueArr(acl_2018_key_counter.most_common(30))
@@ -148,7 +148,7 @@ def getAclTrend():
         item3 = acl_2019_dict[item]
         newDict[item]=[item1, item2, item3]
         # print("{}={}".format(item,[item1, item2, item3]))
-    # print(newDict)
+    print(newDict)
 
 def getIcmlTrend():
     newArr = []
@@ -180,6 +180,7 @@ def getIcmlTrend():
         item3 = icml_2019_dict[item]
         newDict[item]=[item1, item2, item3]
         # print("{}={}".format(item,[item1, item2, item3]))
-    # print(newDict)
+    print(newDict)
 
+getAclTrend()
 getIcmlTrend()
