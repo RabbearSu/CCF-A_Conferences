@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        h3 {
+            width: 400px;
+            text-align: center;
+            font-size: 60px;
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+        }
+
+        p {
+            width: 300px;
+            text-align: center;
+            font-size: 45px;
+            cursor: pointer;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #icml {
+            top: 70%;
+        }
+    </style>
+</head>
+<body>
+<h3>顶会论文统计</h3>
+<p id="acl">ACL</p>
+<p id="icml">ICML</p>
+<script src="js/common.js"></script>
+<script>
+
+
+    my$("acl").onclick = function () {
+        window.location.href = "HTML\\ACL历年投稿论文数情况.html"
+    };
+
+    my$("icml").onclick = function () {
+        window.location.href = "HTML\\ICML历年投稿论文数情况.html"
+    }
+</script>
+</body>
+</html>

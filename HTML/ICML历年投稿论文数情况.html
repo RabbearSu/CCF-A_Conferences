@@ -3,261 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <title>ICML历年投稿论文数情况</title>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <style>
+        .box {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
 
+        dl {
+            position: absolute;
+            bottom: -70px;
+            left: 100px;
+            list-style: none;
+            text-align: center;
+        }
+
+        dl dt,
+        dl dd {
+            font-size: 30px;
+            float: left;
+        }
+
+        dl dd {
+            cursor: pointer;
+        }
+
+        input {
+            position: absolute;
+            bottom: -55px;
+            left: 840px;
+            outline: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100px;
+            height: 40px;
+        }
+
+    </style>
 </head>
 <body>
+<div class="box">
+    <dl>
+        <dt>历年情况</dt>
+        <dd id="acl17">2017</dd>
+        <dd id="acl18">2018</dd>
+        <dd id="acl19">2019</dd>
+        <dd id="trend">类别数目趋势图</dd>
+    </dl>
+    <input type="button" value="返回首页" id="btn">
     <div id="ec30edc5fe7344c29260fcdbf32d0553" class="chart-container" style="width:1200px; height:600px;"></div>
-    <script>
-        var chart_ec30edc5fe7344c29260fcdbf32d0553 = echarts.init(
-            document.getElementById('ec30edc5fe7344c29260fcdbf32d0553'), 'white', {renderer: 'canvas'});
-        var option_ec30edc5fe7344c29260fcdbf32d0553 = {
-    "animation": true,
-    "animationThreshold": 2000,
-    "animationDuration": 1000,
-    "animationEasing": "cubicOut",
-    "animationDelay": 0,
-    "animationDurationUpdate": 300,
-    "animationEasingUpdate": "cubicOut",
-    "animationDelayUpdate": 0,
-    "color": [
-        "#c23531",
-        "#2f4554",
-        "#61a0a8",
-        "#d48265",
-        "#749f83",
-        "#ca8622",
-        "#bda29a",
-        "#6e7074",
-        "#546570",
-        "#c4ccd3",
-        "#f05b72",
-        "#ef5b9c",
-        "#f47920",
-        "#905a3d",
-        "#fab27b",
-        "#2a5caa",
-        "#444693",
-        "#726930",
-        "#b2d235",
-        "#6d8346",
-        "#ac6767",
-        "#1d953f",
-        "#6950a1",
-        "#918597"
-    ],
-    "series": [
-        {
-            "type": "bar",
-            "name": "\u63a5\u6536\u6570",
-            "data": [
-                270,
-                434,
-                621,
-                773
-            ],
-            "barCategoryGap": "20%",
-            "label": {
-                "show": true,
-                "position": "top",
-                "margin": 8
-            }
-        },
-        {
-            "type": "bar",
-            "name": "\u6295\u7a3f\u6570",
-            "data": [
-                1037,
-                1676,
-                2473,
-                3423
-            ],
-            "barCategoryGap": "20%",
-            "label": {
-                "show": true,
-                "position": "top",
-                "margin": 8
-            }
-        },
-        {
-            "type": "line",
-            "name": "\u63a5\u6536\u7387",
-            "connectNulls": false,
-            "yAxisIndex": 1,
-            "symbolSize": 4,
-            "showSymbol": true,
-            "smooth": false,
-            "step": false,
-            "data": [
-                [
-                    "2015",
-                    26
+</div>
+<script>
+    var chart_ec30edc5fe7344c29260fcdbf32d0553 = echarts.init(
+        document.getElementById('ec30edc5fe7344c29260fcdbf32d0553'), 'white', {renderer: 'canvas'});
+    var option_ec30edc5fe7344c29260fcdbf32d0553 = {
+        "animation": true,
+        "animationThreshold": 2000,
+        "animationDuration": 1000,
+        "animationEasing": "cubicOut",
+        "animationDelay": 0,
+        "animationDurationUpdate": 300,
+        "animationEasingUpdate": "cubicOut",
+        "animationDelayUpdate": 0,
+        "color": [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+            "#f05b72",
+            "#ef5b9c",
+            "#f47920",
+            "#905a3d",
+            "#fab27b",
+            "#2a5caa",
+            "#444693",
+            "#726930",
+            "#b2d235",
+            "#6d8346",
+            "#ac6767",
+            "#1d953f",
+            "#6950a1",
+            "#918597"
+        ],
+        "series": [
+            {
+                "type": "bar",
+                "name": "\u63a5\u6536\u6570",
+                "data": [
+                    270,
+                    434,
+                    621,
+                    773
                 ],
-                [
-                    "2017",
-                    25.9
-                ],
-                [
-                    "2018",
-                    25.1
-                ],
-                [
-                    "2019",
-                    22.6
-                ]
-            ],
-            "hoverAnimation": true,
-            "label": {
-                "show": true,
-                "position": "top",
-                "margin": 8
+                "barCategoryGap": "20%",
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8
+                }
             },
-            "lineStyle": {
-                "width": 1,
-                "opacity": 1,
-                "curveness": 0,
-                "type": "solid"
+            {
+                "type": "bar",
+                "name": "\u6295\u7a3f\u6570",
+                "data": [
+                    1037,
+                    1676,
+                    2473,
+                    3423
+                ],
+                "barCategoryGap": "20%",
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8
+                }
             },
-            "areaStyle": {
-                "opacity": 0
+            {
+                "type": "line",
+                "name": "\u63a5\u6536\u7387",
+                "connectNulls": false,
+                "yAxisIndex": 1,
+                "symbolSize": 4,
+                "showSymbol": true,
+                "smooth": false,
+                "step": false,
+                "data": [
+                    [
+                        "2015",
+                        26
+                    ],
+                    [
+                        "2017",
+                        25.9
+                    ],
+                    [
+                        "2018",
+                        25.1
+                    ],
+                    [
+                        "2019",
+                        22.6
+                    ]
+                ],
+                "hoverAnimation": true,
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8
+                },
+                "lineStyle": {
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                },
+                "areaStyle": {
+                    "opacity": 0
+                }
             }
-        }
-    ],
-    "legend": [
-        {
-            "data": [
-                "\u63a5\u6536\u6570",
-                "\u6295\u7a3f\u6570",
-                "\u63a5\u6536\u7387"
-            ],
-            "selected": {
-                "\u63a5\u6536\u6570": true,
-                "\u6295\u7a3f\u6570": true
-            },
-            "show": true
-        }
-    ],
-    "tooltip": {
-        "show": true,
-        "trigger": "axis",
-        "triggerOn": "mousemove|click",
-        "axisPointer": {
-            "type": "cross"
-        },
-        "textStyle": {
-            "fontSize": 14
-        },
-        "borderWidth": 0
-    },
-    "xAxis": [
-        {
-            "type": "category",
+        ],
+        "legend": [
+            {
+                "data": [
+                    "\u63a5\u6536\u6570",
+                    "\u6295\u7a3f\u6570",
+                    "\u63a5\u6536\u7387"
+                ],
+                "selected": {
+                    "\u63a5\u6536\u6570": true,
+                    "\u6295\u7a3f\u6570": true
+                },
+                "show": true
+            }
+        ],
+        "tooltip": {
             "show": true,
-            "scale": false,
-            "nameLocation": "end",
-            "nameGap": 15,
-            "gridIndex": 0,
+            "trigger": "axis",
+            "triggerOn": "mousemove|click",
             "axisPointer": {
-                "show": true,
-                "type": "shadow"
+                "type": "cross"
             },
-            "inverse": false,
-            "offset": 0,
-            "splitNumber": 5,
-            "minInterval": 0,
-            "splitLine": {
-                "show": false,
-                "lineStyle": {
-                    "width": 1,
-                    "opacity": 1,
-                    "curveness": 0,
-                    "type": "solid"
-                }
+            "textStyle": {
+                "fontSize": 14
             },
-            "data": [
-                "2015",
-                "2017",
-                "2018",
-                "2019"
-            ]
-        }
-    ],
-    "yAxis": [
-        {
-            "type": "value",
-            "name": "\u8bba\u6587\u6570\u91cf",
-            "show": true,
-            "scale": false,
-            "nameLocation": "end",
-            "nameGap": 15,
-            "interval": 500,
-            "gridIndex": 0,
-            "axisTick": {
-                "show": true,
-                "alignWithLabel": false,
-                "inside": false
-            },
-            "axisLabel": {
-                "show": true,
-                "position": "top",
-                "margin": 8,
-                "formatter": "{value} \u7bc7"
-            },
-            "inverse": false,
-            "offset": 0,
-            "splitNumber": 5,
-            "min": 0,
-            "max": 3500,
-            "minInterval": 0,
-            "splitLine": {
-                "show": true,
-                "lineStyle": {
-                    "width": 1,
-                    "opacity": 1,
-                    "curveness": 0,
-                    "type": "solid"
-                }
-            }
+            "borderWidth": 0
         },
-        {
-            "type": "value",
-            "name": "\u63a5\u6536\u7387",
-            "show": true,
-            "scale": false,
-            "nameLocation": "end",
-            "nameGap": 15,
-            "interval": 1,
-            "gridIndex": 0,
-            "axisLabel": {
+        "xAxis": [
+            {
+                "type": "category",
                 "show": true,
-                "position": "top",
-                "margin": 8,
-                "formatter": "{value}%"
+                "scale": false,
+                "nameLocation": "end",
+                "nameGap": 15,
+                "gridIndex": 0,
+                "axisPointer": {
+                    "show": true,
+                    "type": "shadow"
+                },
+                "inverse": false,
+                "offset": 0,
+                "splitNumber": 5,
+                "minInterval": 0,
+                "splitLine": {
+                    "show": false,
+                    "lineStyle": {
+                        "width": 1,
+                        "opacity": 1,
+                        "curveness": 0,
+                        "type": "solid"
+                    }
+                },
+                "data": [
+                    "2015",
+                    "2017",
+                    "2018",
+                    "2019"
+                ]
+            }
+        ],
+        "yAxis": [
+            {
+                "type": "value",
+                "name": "\u8bba\u6587\u6570\u91cf",
+                "show": true,
+                "scale": false,
+                "nameLocation": "end",
+                "nameGap": 15,
+                "interval": 500,
+                "gridIndex": 0,
+                "axisTick": {
+                    "show": true,
+                    "alignWithLabel": false,
+                    "inside": false
+                },
+                "axisLabel": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8,
+                    "formatter": "{value} \u7bc7"
+                },
+                "inverse": false,
+                "offset": 0,
+                "splitNumber": 5,
+                "min": 0,
+                "max": 3500,
+                "minInterval": 0,
+                "splitLine": {
+                    "show": true,
+                    "lineStyle": {
+                        "width": 1,
+                        "opacity": 1,
+                        "curveness": 0,
+                        "type": "solid"
+                    }
+                }
             },
-            "inverse": false,
-            "offset": 0,
-            "splitNumber": 5,
-            "min": 22,
-            "max": 26,
-            "minInterval": 0,
-            "splitLine": {
-                "show": false,
-                "lineStyle": {
-                    "width": 1,
-                    "opacity": 1,
-                    "curveness": 0,
-                    "type": "solid"
+            {
+                "type": "value",
+                "name": "\u63a5\u6536\u7387",
+                "show": true,
+                "scale": false,
+                "nameLocation": "end",
+                "nameGap": 15,
+                "interval": 1,
+                "gridIndex": 0,
+                "axisLabel": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8,
+                    "formatter": "{value}%"
+                },
+                "inverse": false,
+                "offset": 0,
+                "splitNumber": 5,
+                "min": 22,
+                "max": 26,
+                "minInterval": 0,
+                "splitLine": {
+                    "show": false,
+                    "lineStyle": {
+                        "width": 1,
+                        "opacity": 1,
+                        "curveness": 0,
+                        "type": "solid"
+                    }
                 }
             }
-        }
-    ],
-    "title": [
-        {
-            "text": "ICML\u5386\u5e74\u6295\u7a3f\u8bba\u6587\u6570\u60c5\u51b5"
-        }
-    ]
-};
-        chart_ec30edc5fe7344c29260fcdbf32d0553.setOption(option_ec30edc5fe7344c29260fcdbf32d0553);
-    </script>
+        ],
+        "title": [
+            {
+                "text": "ICML\u5386\u5e74\u6295\u7a3f\u8bba\u6587\u6570\u60c5\u51b5"
+            }
+        ]
+    };
+    chart_ec30edc5fe7344c29260fcdbf32d0553.setOption(option_ec30edc5fe7344c29260fcdbf32d0553);
+</script>
+<script src="../js/common.js"></script>
+<script>
+    my$("acl17").onclick = function () {
+        window.location.href = "ICML-2017-Pie.html";
+    };
+    my$("acl18").onclick = function () {
+        window.location.href = "ICML-2018-Pie.html";
+    };
+    my$("acl19").onclick = function () {
+        window.location.href = "ICML-2019-Pie.html";
+    };
+    my$("trend").onclick = function () {
+        window.location.href = "ICML各主题趋势图.html";
+    };
+    my$("btn").onclick = function () {
+        window.location.href = "..\\index.html"
+    }
+</script>
 </body>
 </html>

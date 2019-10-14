@@ -3,257 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <title>ACL 2018 各类别饼图</title>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <style>
+        #box {
+            position: absolute;
+            top: 40px;
+            right: 120px;
+        }
 
+        ul {
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #ccc;
+        }
+
+        ul li {
+            font-size: 30px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+            /*margin-top: 10px;*/
+            list-style: none;
+        }
+
+        ul li:nth-of-type(5n) {
+            color: #C23531;
+        }
+
+        ul li:nth-of-type(5n+1) {
+            color: #2F4554;
+        }
+        ul li:nth-of-type(5n+2) {
+            color: #61A0A8;
+        }
+        ul li:nth-of-type(5n+3) {
+            color: #D48265;
+        }
+        ul li:nth-of-type(5n+4) {
+            color: #749F83;
+        }
+
+        .childBox {
+            position: absolute;
+            background-color: #FFF;
+            border: 1px solid #ccc;
+            width: 1000px;
+            left: -1020px;
+            top: 0;
+            z-index: 999;
+            padding-left: 10px;
+        }
+
+        .childBox p {
+            color: #749F83;
+        }
+
+        input {
+            position: absolute;
+            outline: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100px;
+            height: 40px;
+            bottom: 10%;
+            left: 35%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
 </head>
 <body>
-    <div id="6c1677ca823f4645adf58a52f4fcc710" class="chart-container" style="width:900px; height:500px;"></div>
-    <script>
-        var chart_6c1677ca823f4645adf58a52f4fcc710 = echarts.init(
-            document.getElementById('6c1677ca823f4645adf58a52f4fcc710'), 'white', {renderer: 'canvas'});
-        var option_6c1677ca823f4645adf58a52f4fcc710 = {
-    "animation": true,
-    "animationThreshold": 2000,
-    "animationDuration": 1000,
-    "animationEasing": "cubicOut",
-    "animationDelay": 0,
-    "animationDurationUpdate": 300,
-    "animationEasingUpdate": "cubicOut",
-    "animationDelayUpdate": 0,
-    "color": [
-        "#c23531",
-        "#2f4554",
-        "#61a0a8",
-        "#d48265",
-        "#749f83",
-        "#ca8622",
-        "#bda29a",
-        "#6e7074",
-        "#546570",
-        "#c4ccd3",
-        "#f05b72",
-        "#ef5b9c",
-        "#f47920",
-        "#905a3d",
-        "#fab27b",
-        "#2a5caa",
-        "#444693",
-        "#726930",
-        "#b2d235",
-        "#6d8346",
-        "#ac6767",
-        "#1d953f",
-        "#6950a1",
-        "#918597"
-    ],
-    "series": [
-        {
-            "type": "pie",
-            "clockwise": true,
-            "data": [
-                {
-                    "name": "model",
-                    "value": 35
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<input type="button" value="返回" id="btn">
+<div id="6c1677ca823f4645adf58a52f4fcc710" class="chart-container" style="width:900px; height:500px;"></div>
+<script>
+    var chart_6c1677ca823f4645adf58a52f4fcc710 = echarts.init(
+        document.getElementById('6c1677ca823f4645adf58a52f4fcc710'), 'white', {renderer: 'canvas'});
+    var option_6c1677ca823f4645adf58a52f4fcc710 = {
+        "animation": true,
+        "animationThreshold": 2000,
+        "animationDuration": 1000,
+        "animationEasing": "cubicOut",
+        "animationDelay": 0,
+        "animationDurationUpdate": 300,
+        "animationEasingUpdate": "cubicOut",
+        "animationDelayUpdate": 0,
+        "color": [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+            "#f05b72",
+            "#ef5b9c",
+            "#f47920",
+            "#905a3d",
+            "#fab27b",
+            "#2a5caa",
+            "#444693",
+            "#726930",
+            "#b2d235",
+            "#6d8346",
+            "#ac6767",
+            "#1d953f",
+            "#6950a1",
+            "#918597"
+        ],
+        "series": [
+            {
+                "type": "pie",
+                "clockwise": true,
+                "data": [
+                    {
+                        "name": "model",
+                        "value": 35
+                    },
+                    {
+                        "name": "language",
+                        "value": 31
+                    },
+                    {
+                        "name": "semantic",
+                        "value": 27
+                    },
+                    {
+                        "name": "word",
+                        "value": 27
+                    },
+                    {
+                        "name": "embedding",
+                        "value": 25
+                    },
+                    {
+                        "name": "parsing",
+                        "value": 25
+                    },
+                    {
+                        "name": "translation",
+                        "value": 24
+                    },
+                    {
+                        "name": "machine",
+                        "value": 24
+                    },
+                    {
+                        "name": "representation",
+                        "value": 19
+                    },
+                    {
+                        "name": "knowledge",
+                        "value": 18
+                    },
+                    {
+                        "name": "generation",
+                        "value": 17
+                    },
+                    {
+                        "name": "modeling",
+                        "value": 17
+                    },
+                    {
+                        "name": "text",
+                        "value": 17
+                    },
+                    {
+                        "name": "document",
+                        "value": 17
+                    },
+                    {
+                        "name": "extraction",
+                        "value": 17
+                    },
+                    {
+                        "name": "attention",
+                        "value": 16
+                    },
+                    {
+                        "name": "sentiment",
+                        "value": 15
+                    },
+                    {
+                        "name": "classification",
+                        "value": 15
+                    },
+                    {
+                        "name": "sentence",
+                        "value": 14
+                    },
+                    {
+                        "name": "relation",
+                        "value": 14
+                    },
+                    {
+                        "name": "graph",
+                        "value": 13
+                    },
+                    {
+                        "name": "entity",
+                        "value": 13
+                    },
+                    {
+                        "name": "improving",
+                        "value": 13
+                    },
+                    {
+                        "name": "question",
+                        "value": 13
+                    },
+                    {
+                        "name": "automatic",
+                        "value": 13
+                    },
+                    {
+                        "name": "prediction",
+                        "value": 12
+                    },
+                    {
+                        "name": "analysis",
+                        "value": 10
+                    },
+                    {
+                        "name": "end-to-end",
+                        "value": 10
+                    },
+                    {
+                        "name": "detection",
+                        "value": 10
+                    },
+                    {
+                        "name": "unsupervised",
+                        "value": 10
+                    }
+                ],
+                "radius": [
+                    "0%",
+                    "75%"
+                ],
+                "center": [
+                    "65%",
+                    "55%"
+                ],
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8,
+                    "formatter": "{b}: {c}"
                 },
-                {
-                    "name": "language",
-                    "value": 31
-                },
-                {
-                    "name": "semantic",
-                    "value": 27
-                },
-                {
-                    "name": "word",
-                    "value": 27
-                },
-                {
-                    "name": "embedding",
-                    "value": 25
-                },
-                {
-                    "name": "parsing",
-                    "value": 25
-                },
-                {
-                    "name": "translation",
-                    "value": 24
-                },
-                {
-                    "name": "machine",
-                    "value": 24
-                },
-                {
-                    "name": "representation",
-                    "value": 19
-                },
-                {
-                    "name": "knowledge",
-                    "value": 18
-                },
-                {
-                    "name": "generation",
-                    "value": 17
-                },
-                {
-                    "name": "modeling",
-                    "value": 17
-                },
-                {
-                    "name": "text",
-                    "value": 17
-                },
-                {
-                    "name": "document",
-                    "value": 17
-                },
-                {
-                    "name": "extraction",
-                    "value": 17
-                },
-                {
-                    "name": "attention",
-                    "value": 16
-                },
-                {
-                    "name": "sentiment",
-                    "value": 15
-                },
-                {
-                    "name": "classification",
-                    "value": 15
-                },
-                {
-                    "name": "sentence",
-                    "value": 14
-                },
-                {
-                    "name": "relation",
-                    "value": 14
-                },
-                {
-                    "name": "graph",
-                    "value": 13
-                },
-                {
-                    "name": "entity",
-                    "value": 13
-                },
-                {
-                    "name": "improving",
-                    "value": 13
-                },
-                {
-                    "name": "question",
-                    "value": 13
-                },
-                {
-                    "name": "automatic",
-                    "value": 13
-                },
-                {
-                    "name": "prediction",
-                    "value": 12
-                },
-                {
-                    "name": "analysis",
-                    "value": 10
-                },
-                {
-                    "name": "end-to-end",
-                    "value": 10
-                },
-                {
-                    "name": "detection",
-                    "value": 10
-                },
-                {
-                    "name": "unsupervised",
-                    "value": 10
+                "rippleEffect": {
+                    "show": true,
+                    "brushType": "stroke",
+                    "scale": 2.5,
+                    "period": 4
                 }
-            ],
-            "radius": [
-                "0%",
-                "75%"
-            ],
-            "center": [
-                "65%",
-                "55%"
-            ],
-            "label": {
+            }
+        ],
+        "legend": [
+            {
+                "data": [
+                    "model",
+                    "language",
+                    "semantic",
+                    "word",
+                    "embedding",
+                    "parsing",
+                    "translation",
+                    "machine",
+                    "representation",
+                    "knowledge",
+                    "generation",
+                    "modeling",
+                    "text",
+                    "document",
+                    "extraction",
+                    "attention",
+                    "sentiment",
+                    "classification",
+                    "sentence",
+                    "relation",
+                    "graph",
+                    "entity",
+                    "improving",
+                    "question",
+                    "automatic",
+                    "prediction",
+                    "analysis",
+                    "end-to-end",
+                    "detection",
+                    "unsupervised"
+                ],
+                "selected": {},
                 "show": true,
-                "position": "top",
-                "margin": 8,
-                "formatter": "{b}: {c}"
+                "left": "0%",
+                "top": "10%",
+                "orient": "vertical"
+            }
+        ],
+        "tooltip": {
+            "show": true,
+            "trigger": "item",
+            "triggerOn": "mousemove|click",
+            "axisPointer": {
+                "type": "line"
             },
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
+            "textStyle": {
+                "fontSize": 14
+            },
+            "borderWidth": 0
+        },
+        "title": [
+            {
+                "text": "ACL-2018"
+            }
+        ]
+    };
+    chart_6c1677ca823f4645adf58a52f4fcc710.setOption(option_6c1677ca823f4645adf58a52f4fcc710);
+</script>
+<script src="../js/common.js"></script>
+<script>
+
+    var allPapers = {'model': ['Neural Factor Graph Models for Cross-lingual Morphological Tagging', 'Neural Models for Documents with Metadata', 'Improving Entity Linking by Modeling Latent Relations between Mentions', 'Visual Attention Model for Name Tagging in Multimodal Social Media', 'LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better', 'A Graph-to-Sequence Model for AMR-to-Text Generation', 'Numeracy for Language Models: Evaluating and Improving their Ability to Predict Numbers', 'Building Language Models for Text with Named Entities', 'Improving Event Coreference Resolution by Modeling Correlations between Event Coreference Chains and Document Topic Structures', 'Modeling Deliberative Argumentation Strategies on Wikipedia', 'Universal Language Model Fine-tuning for Text Classification', 'A Spatial Model for Extracting and Visualizing Latent Discourse Structure in Text', 'A Unified Model for Extractive and Abstractive Summarization using Inconsistency Loss', 'Entity-Centric Joint Modeling of Japanese Coreference Resolution and Predicate Argument Structure Analysis', 'Sequence-to-sequence Models for Cache Transition Systems', 'Language Modeling for Code-Mixing: The Role of Linguistic Theory based Synthetic Data', 'Deep-speare: A joint neural model of poetic language, meter and rhyme', 'Coherence Modeling of Asynchronous Conversations: A Neural Entity Grid Approach', 'Context-Aware Neural Model for Temporal Information Extraction', 'Confidence Modeling for Neural Semantic Parsing', 'Tailored Sequence to Sequence Models to Different Conversation Scenarios', 'A Deep Relevance Model for Zero-Shot Document Filtering', 'Modeling and Prediction of Online Product Review Helpfulness: A Survey', 'Pre- and In-Parsing Models for Neural Empty Category Detection', 'Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms', 'Token-level and sequence-level loss smoothing for RNN language models', 'Semantically Equivalent Adversarial Rules for Debugging NLP models', 'Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates', 'Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism', 'Did the Model Understand the Question?', 'StructVAE: Tree-structured Latent Variable Models for Semi-supervised Semantic Parsing', 'Character-Level Models versus Morphology in Semantic Role Labeling', 'Neural Natural Language Inference Models Enhanced with External Knowledge', 'Modeling Naive Psychology of Characters in Simple Commonsense Stories', 'A Distributional and Orthographic Aggregation Model for English Derivational Morphology', 'Morphosyntactic Tagging with a Meta-BiLSTM Model over Context Sensitive Token Encodings', 'Sharp Nearby, Fuzzy Far Away: How Neural Language Models Use Context', 'Document Modeling with External Attention for Sentence Extraction', 'Sense-Aware Neural Models for Pun Location in Texts', 'Modeling Sentiment Association in Discourse for Humor Recognition', 'A Co-Matching Model for Multi-choice Reading Comprehension', 'A Language Model based Evaluator for Sentence Compression', 'Modeling discourse cohesion for discourse parsing via memory network', 'Dynamic and Static Topic Model for Analyzing Time-Series Document Collections', 'Diachronic degradation of language models: Insights from social media', 'PhraseCTM: Correlated Topic Modeling on Phrases within Markov Random Fields', 'Narrative Modeling with Memory Chains and Semantic Supervision', 'Neural Hidden Markov Model for Machine Translation', 'Learning Matching Models with Weak Supervision for Response Selection in Retrieval-based Chatbots', 'Content-based Popularity Prediction of Online Petitions Using a Deep Regression Model', "'Lighter' Can Still Be Dark: Modeling Comparative Color Descriptions", 'Improving Topic Quality by Promoting Named Entities in Topic Modeling', 'A Walk-based Model on Entity Graphs for Relation Extraction', 'Personalized Language Model for Query Auto-Completion'], 'language': ['Interactive Language Acquisition with One-shot Visual Concept Learning through a Conversational Game', 'The Hitchhiker’s Guide to Testing Statistical Significance in Natural Language Processing', 'Numeracy for Language Models: Evaluating and Improving their Ability to Predict Numbers', 'Language Generation via DAG Transduction', 'Building Language Models for Text with Named Entities', 'Illustrative Language Understanding: Large-Scale Visual Grounding with Image Search', 'Universal Language Model Fine-tuning for Text Classification', 'Language Modeling for Code-Mixing: The Role of Linguistic Theory based Synthetic Data', 'Deep-speare: A joint neural model of poetic language, meter and rhyme', 'Triangular Architecture for Rare Language Translation', 'Zero-shot Learning of Classifiers from Natural Language Quantification', 'Multimodal Language Analysis in the Wild: CMU-MOSEI Dataset and Interpretable Dynamic Fusion Graph', 'A Framework for Representing Language Acquisition in a Population Setting', 'Token-level and sequence-level loss smoothing for RNN language models', 'Attacking Visual Language Grounding with Adversarial Examples: A Case Study on Neural Image Captioning', 'Bilingual Sentiment Embeddings: Joint Projection of Sentiment Across Languages', 'Training Classifiers with Natural Language Explanations', 'Neural Natural Language Inference Models Enhanced with External Knowledge', 'Discourse Marker Augmented Network with Reinforcement Learning for Natural Language Inference', 'DuoRC: Towards Complex Language Understanding with Paraphrased Reading Comprehension', 'Marrying Up Regular Expressions with Neural Networks: A Case Study for Spoken Language Understanding', 'Sharp Nearby, Fuzzy Far Away: How Neural Language Models Use Context', 'The price of debiasing automatic metrics in natural language evalaution', 'Bridging Languages through Images with Deep Partial Canonical Correlation Analysis', 'A Corpus with Multi-Level Annotations of Patients, Interventions and Outcomes to Support Language Processing for Medical Literature', 'Fighting Offensive Language on Social Media with Unsupervised Text Style Transfer', 'A Language Model based Evaluator for Sentence Compression', 'Diachronic degradation of language models: Insights from social media', 'On the Practical Computational Power of Finite Precision RNNs for Language Recognition', 'Judicious Selection of Training Data in Assisting Language for Multilingual Neural NER', 'Improving Slot Filling in Spoken Language Understanding with Joint Pointer and Attention', 'Personalized Language Model for Query Auto-Completion'], 'semantic': ['NASH: Toward End-to-End Neural Architecture for Generative Semantic Hashing', 'To Attend or not to Attend: A Case Study on Syntactic Structures for Semantic Relatedness', 'Accurate SHRG-Based Semantic Parsing', 'Confidence Modeling for Neural Semantic Parsing', 'Sequence-to-Action: End-to-End Semantic Graph Generation for Semantic Parsing', 'Coarse-to-Fine Decoding for Neural Semantic Parsing', 'Syntax for Semantic Role Labeling, To Be, Or Not To Be', 'Simple and Effective Text Simplification Using Semantic and Neural Methods', 'Semantically Equivalent Adversarial Rules for Debugging NLP models', 'AMR dependency parsing with a typed semantic algebra', 'Weakly Supervised Semantic Parsing with Abstract Examples', 'SemAxis: A Lightweight Framework to Characterize Domain-Specific Word Semantics Beyond Sentiment', 'StructVAE: Tree-structured Latent Variable Models for Semi-supervised Semantic Parsing', 'Character-Level Models versus Morphology in Semantic Role Labeling', 'Semantic Parsing with Syntax- and Table-Aware SQL Generation', 'A La Carte Embedding: Cheap but Effective Induction of Semantic Feature Vectors', 'Entity-Duet Neural Ranking: Understanding the Role of Knowledge Graph Semantics in Neural Information Retrieval', 'Improving a Neural Semantic Parser by Counterfactual Learning from Human Bandit Feedback', 'Multitask Parsing Across Semantic Representations', 'Analogical Reasoning on Chinese Morphological and Semantic Relations', 'Polyglot Semantic Role Labeling', 'Simpler but More Accurate Semantic Dependency Parsing', 'Unsupervised Semantic Frame Induction using Triclustering', 'Active learning for deep semantic parsing', 'Exploring Semantic Properties of Sentence Embeddings', 'Narrative Modeling with Memory Chains and Semantic Supervision', 'Jointly Predicting Predicates and Arguments in Neural Semantic Role Labeling', 'Learning Cross-lingual Distributed Logical Representations for Semantic Parsing'], 'word': ['Incorporating Latent Meanings of Morphological Compositions to Enhance Word Embeddings', 'Subword-level Word Vector Representations for Korean', 'Extractive Summarization with SWAP-NET: Sentences and Words from Alternating Pointer Networks', 'Incorporating Glosses into Neural Word Sense Disambiguation', 'Word Embedding and WordNet Based Metaphor Identification and Interpretation', 'Probabilistic FastText for Multi-Sense Word Embeddings', 'Incorporating Chinese Characters of Words for Lexical Sememe Prediction', 'A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings', 'Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms', 'Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates', 'Searching for the X-Factor: Exploring Corpus Subjectivity for Word Embeddings', 'SemAxis: A Lightweight Framework to Characterize Domain-Specific Word Semantics Beyond Sentiment', 'Joint Embedding of Words and Labels for Text Classification', 'Batch IS NOT Heavy: Learning Word Representations From All Samples', 'Obtaining Reliable Human Ratings of Valence, Arousal, and Dominance for 20,000 English Words', 'Using Intermediate Representations to Solve Math Word Problems', 'Explicit Retrofitting of Distributional Word Vectors', 'Multimodal Affective Analysis Using Hierarchical Attention Strategy with Word-Level Alignment', 'Learning Domain-Sensitive and Sentiment-Aware Word Embeddings', 'Using pseudo-senses for improving the extraction of synonyms from word embeddings', 'A Rank-Based Similarity Metric for Word Embeddings', 'Characterizing Departures from Linearity in Word Translation', 'Conditional Generators of Words Definitions', 'Domain Adapted Word Embeddings for Improved Sentiment Classification', 'GNEG: Graph-Based Negative Sampling for word2vec', 'Addressing Noise in Multidialectal Word Embeddings', 'Word Error Rate Estimation for Speech Recognition: e-WER', 'Unsupervised Learning of Style-sensitive Word Vectors', 'A Document Descriptor using Covariance of Word Vectors', 'Bag-of-Words as Target for Neural Machine Translation', 'Automated essay scoring with string kernels and word embeddings', 'Restricted Recurrent Neural Tensor Networks: Exploiting Word Frequency and Compositionality'], 'embedding': ['Probabilistic Embedding of Knowledge Graphs with Box Lattice Measures', 'Incorporating Latent Meanings of Morphological Compositions to Enhance Word Embeddings', 'What you can cram into a single \\$\\&!#* vector: Probing sentence embeddings for linguistic properties', 'Attention Focusing for Neural Machine Translation by Bridging Source and Target Embeddings', 'Word Embedding and WordNet Based Metaphor Identification and Interpretation', 'Probabilistic FastText for Multi-Sense Word Embeddings', 'A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings', 'Towards Understanding the Geometry of Knowledge Graph Embeddings', 'ParaNMT-50M: Pushing the Limits of Paraphrastic Sentence Embeddings with Millions of Machine Translations', 'Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms', 'Searching for the X-Factor: Exploring Corpus Subjectivity for Word Embeddings', 'Bilingual Sentiment Embeddings: Joint Projection of Sentiment Across Languages', 'Domain Adaptation with Adversarial Training and Graph Embeddings', 'Embedding Learning Through Multilingual Concept Induction', 'Joint Embedding of Words and Labels for Text Classification', 'A La Carte Embedding: Cheap but Effective Induction of Semantic Feature Vectors', 'Learning Domain-Sensitive and Sentiment-Aware Word Embeddings', 'Improving Knowledge Graph Embedding Using Simple Constraints', 'Using pseudo-senses for improving the extraction of synonyms from word embeddings', 'A Rank-Based Similarity Metric for Word Embeddings', 'Double Embeddings and CNN-based Sequence Labeling for Aspect Extraction', 'Document Embedding Enhanced Event Detection with Hierarchical and Supervised Attention', 'Domain Adapted Word Embeddings for Improved Sentiment Classification', 'Exploring Semantic Properties of Sentence Embeddings', 'Addressing Noise in Multidialectal Word Embeddings', 'Party Matters: Enhancing Legislative Embeddings with Author Attributes for Vote Prediction', 'Automated essay scoring with string kernels and word embeddings', 'Extracting Commonsense Properties from Embeddings with Limited Human Guidance'], 'parsing': ['Straight to the Tree: Constituency Parsing with Neural Syntactic Distance', 'Discourse Representation Structure Parsing', 'Constituency Parsing with a Self-Attentive Encoder', 'Accurate SHRG-Based Semantic Parsing', 'Confidence Modeling for Neural Semantic Parsing', 'Sequence-to-Action: End-to-End Semantic Graph Generation for Semantic Parsing', 'Coarse-to-Fine Decoding for Neural Semantic Parsing', 'Pre- and In-Parsing Models for Neural Empty Category Detection', 'Stack-Pointer Networks for Dependency Parsing', 'AMR dependency parsing with a typed semantic algebra', 'Twitter Universal Dependency Parsing for African-American and Mainstream American English', 'Weakly Supervised Semantic Parsing with Abstract Examples', 'StructVAE: Tree-structured Latent Variable Models for Semi-supervised Semantic Parsing', 'AMR Parsing as Graph Prediction with Latent Alignment', 'Semantic Parsing with Syntax- and Table-Aware SQL Generation', 'Large-Scale QA-SRL Parsing', 'Global Transition-based Non-projective Dependency Parsing', 'Multitask Parsing Across Semantic Representations', 'Linear-time Constituency Parsing with RNNs and Dynamic Programming', 'Modeling discourse cohesion for discourse parsing via memory network', 'Policy Gradient as a Proxy for Dynamic Oracles in Constituency Parsing', 'Simpler but More Accurate Semantic Dependency Parsing', 'Active learning for deep semantic parsing', 'Generalized chart constraints for efficient PCFG and TAG parsing', 'An Empirical Study of Building a Strong Baseline for Constituency Parsing', 'Learning Cross-lingual Distributed Logical Representations for Semantic Parsing'], 'translation': ['Attention Focusing for Neural Machine Translation by Bridging Source and Target Embeddings', 'A Stochastic Decoder for Neural Machine Translation', 'Towards Robust Neural Machine Translation', 'Triangular Architecture for Rare Language Translation', 'The Best of Both Worlds: Combining Recent Advances in Neural Machine Translation', 'Style Transfer Through Back-Translation', 'Unsupervised Neural Machine Translation with Weight Sharing', 'Unpaired Sentiment-to-Sentiment Translation: A Cycled Reinforcement Learning Approach', 'ParaNMT-50M: Pushing the Limits of Paraphrastic Sentence Embeddings with Millions of Machine Translations', 'Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates', 'Context-Aware Neural Machine Translation Learns Anaphora Resolution', 'Forest-Based Neural Machine Translation', 'Document Context Neural Machine Translation with Memory Networks', 'How Much Attention Do You Need? A Granular Analysis of Neural Machine Translation Architectures', 'Learning Translations via Images with a Massively Multilingual Image Dataset', 'Improving Beam Search by Removing Monotonic Constraint for Neural Machine Translation', 'Characterizing Departures from Linearity in Word Translation', 'Sparse and Constrained Attention for Neural Machine Translation', 'Learning from Chunk-based Feedback in Neural Machine Translation', 'Neural Hidden Markov Model for Machine Translation', 'Adaptive Knowledge Sharing in Multi-Task Learning: Improving Low-Resource Neural Machine Translation', 'Dynamic Sentence Sampling for Efficient Training of Neural Machine Translation', 'A Simple and Effective Approach to Coverage-Aware Neural Machine Translation', 'Bag-of-Words as Target for Neural Machine Translation', 'Extreme Adaptation for Personalized Neural Machine Translation', 'Compositional Representation of Morphologically-Rich Input for Neural Machine Translation'], 'machine': ['Attention Focusing for Neural Machine Translation by Bridging Source and Target Embeddings', 'A Stochastic Decoder for Neural Machine Translation', 'Towards Robust Neural Machine Translation', 'The Best of Both Worlds: Combining Recent Advances in Neural Machine Translation', 'Multi-Passage Machine Reading Comprehension with Cross-Passage Answer Verification', 'Multi-Relational Question Answering from Narratives: Machine Reading and Reasoning in Simulated Worlds', 'Unsupervised Neural Machine Translation with Weight Sharing', 'ParaNMT-50M: Pushing the Limits of Paraphrastic Sentence Embeddings with Millions of Machine Translations', 'Context-Aware Neural Machine Translation Learns Anaphora Resolution', 'Forest-Based Neural Machine Translation', 'Document Context Neural Machine Translation with Memory Networks', 'How Much Attention Do You Need? A Granular Analysis of Neural Machine Translation Architectures', 'Bridging CNNs, RNNs, and Weighted Finite-State Machines', 'Stochastic Answer Networks for Machine Reading Comprehension', 'Improving Beam Search by Removing Monotonic Constraint for Neural Machine Translation', 'Sparse and Constrained Attention for Neural Machine Translation', 'Learning from Chunk-based Feedback in Neural Machine Translation', 'Neural Hidden Markov Model for Machine Translation', 'Adaptive Knowledge Sharing in Multi-Task Learning: Improving Low-Resource Neural Machine Translation', 'Dynamic Sentence Sampling for Efficient Training of Neural Machine Translation', 'A Simple and Effective Approach to Coverage-Aware Neural Machine Translation', 'Bag-of-Words as Target for Neural Machine Translation', 'Extreme Adaptation for Personalized Neural Machine Translation', 'Compositional Representation of Morphologically-Rich Input for Neural Machine Translation'], 'representation': ['Subword-level Word Vector Representations for Korean', 'Discourse Representation Structure Parsing', 'Sentence-State LSTM for Text Representation', 'LinkNBed: Multi-Graph Representation Learning with Entity Linkage', 'Are BLEU and Meaning Representation in Opposition?', 'hyperdoc2vec: Distributed Representations of Hypertext Documents', 'Unsupervised Discrete Sentence Representation Learning for Interpretable Neural Dialog Generation', 'Batch IS NOT Heavy: Learning Word Representations From All Samples', 'Using Intermediate Representations to Solve Math Word Problems', 'Multitask Parsing Across Semantic Representations', 'Towards Robust and Privacy-preserving Text Representations', 'A Multi-task Approach to Learning Multilingual Representations', 'Learning Cross-lingual Distributed Logical Representations for Semantic Parsing', 'Personalized Review Generation By Expanding Phrases and Attending on Aspect-Aware Representations', 'Injecting Relational Structural Representation in Neural Networks for Question Similarity', 'Multi-representation ensembles and delayed SGD updates improve syntax-based NMT', 'Leveraging distributed representations and lexico-syntactic fixedness for token-level prediction of the idiomaticity of English verb-noun combinations', 'Learning with Structured Representations for Negation Scope Extraction', 'Autoencoder as Assistant Supervisor: Improving Text Representation for Chinese Social Media Text Summarization', 'Compositional Representation of Morphologically-Rich Input for Neural Machine Translation'], 'knowledge': ['Knowledge Diffusion for Neural Dialogue Generation', 'Probabilistic Embedding of Knowledge Graphs with Box Lattice Measures', 'AdvEntuRe: Adversarial Training for Textual Entailment with Knowledge-Guided Examples', 'Retrieval of the Best Counterargument without Prior Topic Knowledge', 'Distilling Knowledge for Search-based Structured Prediction', 'Towards Understanding the Geometry of Knowledge Graph Embeddings', 'Temporal Event Knowledge Acquisition via Identifying Narratives', 'Discovering Implicit Knowledge with Unary Relations', 'Knowledgeable Reader: Enhancing Cloze-Style Reading Comprehension with External Commonsense Knowledge', 'Mem2Seq: Effectively Incorporating Knowledge Bases into End-to-End Task-Oriented Dialog Systems', 'Neural Natural Language Inference Models Enhanced with External Knowledge', 'Entity-Duet Neural Ranking: Understanding the Role of Knowledge Graph Semantics in Neural Information Retrieval', 'Improving Knowledge Graph Embedding Using Simple Constraints', 'Type-Sensitive Knowledge Base Inference Without Explicit Type Supervision', 'Large-Scale Multi-Domain Belief Tracking with Knowledge Sharing', 'Automatic Extraction of Commonsense LocatedNear Knowledge', 'Exploiting Document Knowledge for Aspect-level Sentiment Classification', 'A Study of the Importance of External Knowledge in the Named Entity Recognition Task', 'Adaptive Knowledge Sharing in Multi-Task Learning: Improving Low-Resource Neural Machine Translation'], 'generation': ['Knowledge Diffusion for Neural Dialogue Generation', 'Exemplar Encoder-Decoder for Neural Conversation Generation', 'NeuralREG: An end-to-end approach to referring expression generation', 'A Graph-to-Sequence Model for AMR-to-Text Generation', 'Language Generation via DAG Transduction', 'Soft Layer-Specific Multi-Task Summarization with Entailment and Question Generation', 'Hierarchical Neural Story Generation', 'Sequence-to-Action: End-to-End Semantic Graph Generation for Semantic Parsing', 'Neural Argument Generation Augmented with Externally Retrieved Evidence', 'A Neural Approach to Pun Generation', 'Learning to Control the Specificity in Neural Response Generation', 'Unsupervised Discrete Sentence Representation Learning for Interpretable Neural Dialog Generation', 'On the Automatic Generation of Medical Imaging Reports', 'DialSQL: Dialogue Based Structured Query Generation', 'Semantic Parsing with Syntax- and Table-Aware SQL Generation', 'GTR-LSTM: A Triple Encoder for Sentence Generation from RDF Data', 'Personalized Review Generation By Expanding Phrases and Attending on Aspect-Aware Representations'], 'modeling': ['Improving Entity Linking by Modeling Latent Relations between Mentions', 'LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better', 'Improving Event Coreference Resolution by Modeling Correlations between Event Coreference Chains and Document Topic Structures', 'Modeling Deliberative Argumentation Strategies on Wikipedia', 'Entity-Centric Joint Modeling of Japanese Coreference Resolution and Predicate Argument Structure Analysis', 'Language Modeling for Code-Mixing: The Role of Linguistic Theory based Synthetic Data', 'Coherence Modeling of Asynchronous Conversations: A Neural Entity Grid Approach', 'Confidence Modeling for Neural Semantic Parsing', 'Modeling and Prediction of Online Product Review Helpfulness: A Survey', 'Modeling Naive Psychology of Characters in Simple Commonsense Stories', 'Document Modeling with External Attention for Sentence Extraction', 'Modeling Sentiment Association in Discourse for Humor Recognition', 'Modeling discourse cohesion for discourse parsing via memory network', 'PhraseCTM: Correlated Topic Modeling on Phrases within Markov Random Fields', 'Narrative Modeling with Memory Chains and Semantic Supervision', "'Lighter' Can Still Be Dark: Modeling Comparative Color Descriptions", 'Improving Topic Quality by Promoting Named Entities in Topic Modeling'], 'text': ['A Graph-to-Sequence Model for AMR-to-Text Generation', 'Building Language Models for Text with Named Entities', 'Universal Language Model Fine-tuning for Text Classification', 'A Structured Variational Autoencoder for Contextual Morphological Inflection', 'A Spatial Model for Extracting and Visualizing Latent Discourse Structure in Text', 'AdvEntuRe: Adversarial Training for Textual Entailment with Knowledge-Guided Examples', 'Improving Text-to-SQL Evaluation Methodology', 'Sentence-State LSTM for Text Representation', 'Probabilistic FastText for Multi-Sense Word Embeddings', 'Eyes are the Windows to the Soul: Predicting the Rating of Text Quality Using Gaze Behaviour', 'Context-Aware Neural Model for Temporal Information Extraction', 'Efficient and Robust Question Answering from Minimal Context over Documents', 'Document Similarity for Texts of Varying Lengths via Hidden Topics', 'hyperdoc2vec: Distributed Representations of Hypertext Documents', 'Simple and Effective Text Simplification Using Semantic and Neural Methods', 'Textual Deconvolution Saliency (TDS) : a deep tool box for linguistic analysis', 'Context-Aware Neural Machine Translation Learns Anaphora Resolution', 'Document Context Neural Machine Translation with Memory Networks', 'Disconnected Recurrent Neural Networks for Text Categorization', 'Joint Embedding of Words and Labels for Text Classification', 'Morphosyntactic Tagging with a Meta-BiLSTM Model over Context Sensitive Token Encodings', 'Sharp Nearby, Fuzzy Far Away: How Neural Language Models Use Context', 'Conceptual Captions: A Cleaned, Hypernymed, Image Alt-text Dataset For Automatic Image Captioning', 'Sense-Aware Neural Models for Pun Location in Texts', 'Towards Robust and Privacy-preserving Text Representations', 'Fighting Offensive Language on Social Media with Unsupervised Text Style Transfer', 'Bleaching Text: Abstract Features for Cross-lingual Gender Prediction', 'Investigating Audio, Video, and Text Fusion Methods for End-to-End Automatic Personality Prediction', 'Transfer Learning for Context-Aware Question Matching in Information-seeking Conversations in E-commerce', 'Some of Them Can be Guessed! Exploring the Effect of Linguistic Context in Predicting Quantifiers', 'The Influence of Context on Sentence Acceptability Judgements', 'CNN for Text-Based Multiple Choice Question Answering', 'End-Task Oriented Textual Entailment via Deep Explorations of Inter-Sentence Interactions', 'Enhancing Drug-Drug Interaction Extraction from Texts by Molecular Structure Information', 'Hearst Patterns Revisited: Automatic Hypernym Detection from Large Text Corpora', 'HotFlip: White-Box Adversarial Examples for Text Classification', 'Autoencoder as Assistant Supervisor: Improving Text Representation for Chinese Social Media Text Summarization'], 'document': ['Neural Models for Documents with Metadata', 'Improving Event Coreference Resolution by Modeling Correlations between Event Coreference Chains and Document Topic Structures', 'Dating Documents using Graph Convolution Networks', 'Neural Document Summarization by Jointly Learning to Score and Select Sentences', 'Evaluating neural network explanation methods using hybrid documents and morphosyntactic agreement', 'Efficient and Robust Question Answering from Minimal Context over Documents', 'Document Similarity for Texts of Varying Lengths via Hidden Topics', 'A Deep Relevance Model for Zero-Shot Document Filtering', 'Object-oriented Neural Programming (OONP) for Document Understanding', 'hyperdoc2vec: Distributed Representations of Hypertext Documents', 'Document Context Neural Machine Translation with Memory Networks', 'Document Modeling with External Attention for Sentence Extraction', 'Dynamic and Static Topic Model for Analyzing Time-Series Document Collections', 'Document Embedding Enhanced Event Detection with Hierarchical and Supervised Attention', 'Exploiting Document Knowledge for Aspect-level Sentiment Classification', 'A Document Descriptor using Covariance of Word Vectors', 'Examining Temporality in Document Classification'], 'extraction': ['Context-Aware Neural Model for Temporal Information Extraction', 'Robust Distant Supervision Relation Extraction via Deep Reinforcement Learning', 'Adaptive Scaling for Sparse Detection in Information Extraction', 'Joint Training of Candidate Extraction and Answer Selection for Reading Comprehension', 'Zero-Shot Transfer Learning for Event Extraction', 'Recursive Neural Structural Correspondence Network for Cross-domain Aspect and Opinion Co-Extraction', 'Document Modeling with External Attention for Sentence Extraction', 'TutorialBank: A Manually-Collected Corpus for Prerequisite Chains, Survey Extraction and Resource Recommendation', 'DSGAN: Generative Adversarial Training for Distant Supervision Relation Extraction', 'Using pseudo-senses for improving the extraction of synonyms from word embeddings', 'Obligation and Prohibition Extraction Using Hierarchical RNNs', 'Automatic Extraction of Commonsense LocatedNear Knowledge', 'Double Embeddings and CNN-based Sequence Labeling for Aspect Extraction', 'Ranking-Based Automatic Seed Selection and Noise Reduction for Weakly Supervised Relation Extraction', 'Neural Open Information Extraction', 'Enhancing Drug-Drug Interaction Extraction from Texts by Molecular Structure Information', 'A Walk-based Model on Entity Graphs for Relation Extraction', 'Learning with Structured Representations for Negation Scope Extraction'], 'attention': ['Visual Attention Model for Name Tagging in Multimodal Social Media', 'Attention Focusing for Neural Machine Translation by Bridging Source and Target Embeddings', 'Multi-Turn Response Selection for Chatbots with Deep Attention Matching Network', 'Cold-Start Aware User and Product Attention for Sentiment Classification', 'Multi-Granularity Hierarchical Attention Fusion Networks for Reading Comprehension and Question Answering', 'Multi-Input Attention for Unsupervised OCR Correction', 'How Much Attention Do You Need? A Granular Analysis of Neural Machine Translation Architectures', 'Accelerating Neural Transformer via an Average Attention Network', 'Multimodal Affective Analysis Using Hierarchical Attention Strategy with Word-Level Alignment', 'Document Modeling with External Attention for Sentence Extraction', 'Efficient Large-Scale Neural Domain Classification with Personalized Attention', 'Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering', 'Document Embedding Enhanced Event Detection with Hierarchical and Supervised Attention', 'Sparse and Constrained Attention for Neural Machine Translation', 'Cross-Target Stance Classification with Self-Attention Networks', 'A Multi-sentiment-resource Enhanced Attention Network for Sentiment Classification', 'Improving Slot Filling in Spoken Language Understanding with Joint Pointer and Attention'], 'sentiment': ['A Helping Hand: Transfer Learning for Deep Sentiment Analysis', 'Cross-Domain Sentiment Classification with Target Domain Specific Information', 'Identifying Transferable Information Across Domains for Cross-domain Sentiment Classification', 'Aspect Based Sentiment Analysis with Gated Convolutional Networks', 'Sentiment Adaptive End-to-End Dialog Systems', 'Unpaired Sentiment-to-Sentiment Translation: A Cycled Reinforcement Learning Approach', 'Target-Sensitive Memory Networks for Aspect Sentiment Classification', 'Transformation Networks for Target-Oriented Sentiment Classification', 'Bilingual Sentiment Embeddings: Joint Projection of Sentiment Across Languages', 'Cold-Start Aware User and Product Attention for Sentiment Classification', 'SemAxis: A Lightweight Framework to Characterize Domain-Specific Word Semantics Beyond Sentiment', 'Learning Domain-Sensitive and Sentiment-Aware Word Embeddings', 'Modeling Sentiment Association in Discourse for Humor Recognition', 'Domain Adapted Word Embeddings for Improved Sentiment Classification', 'Exploiting Document Knowledge for Aspect-level Sentiment Classification', 'A Multi-sentiment-resource Enhanced Attention Network for Sentiment Classification', 'Pretraining Sentiment Classifiers with Unlabeled Dialog Data'], 'classification': ['Cross-Domain Sentiment Classification with Target Domain Specific Information', 'Identifying Transferable Information Across Domains for Cross-domain Sentiment Classification', 'Universal Language Model Fine-tuning for Text Classification', 'Target-Sensitive Memory Networks for Aspect Sentiment Classification', 'Transformation Networks for Target-Oriented Sentiment Classification', 'Cold-Start Aware User and Product Attention for Sentiment Classification', 'Joint Embedding of Words and Labels for Text Classification', 'Efficient Large-Scale Neural Domain Classification with Personalized Attention', 'Classification of Moral Foundations in Microblog Political Discourse', 'Domain Adapted Word Embeddings for Improved Sentiment Classification', 'Exploiting Document Knowledge for Aspect-level Sentiment Classification', 'Cross-Target Stance Classification with Self-Attention Networks', 'A Multi-sentiment-resource Enhanced Attention Network for Sentiment Classification', 'Examining Temporality in Document Classification', 'HotFlip: White-Box Adversarial Examples for Text Classification'], 'sentence': ['What you can cram into a single \\$\\&!#* vector: Probing sentence embeddings for linguistic properties', 'Extractive Summarization with SWAP-NET: Sentences and Words from Alternating Pointer Networks', 'Sentence-State LSTM for Text Representation', 'Fast Abstractive Summarization with Reinforce-Selected Sentence Rewriting', 'Neural Document Summarization by Jointly Learning to Score and Select Sentences', 'ParaNMT-50M: Pushing the Limits of Paraphrastic Sentence Embeddings with Millions of Machine Translations', 'Unsupervised Abstractive Meeting Summarization with Multi-Sentence Compression and Budgeted Submodular Maximization', 'Unsupervised Discrete Sentence Representation Learning for Interpretable Neural Dialog Generation', 'Generating Informative Responses with Controlled Sentence Function', 'Document Modeling with External Attention for Sentence Extraction', 'GTR-LSTM: A Triple Encoder for Sentence Generation from RDF Data', 'A Language Model based Evaluator for Sentence Compression', 'The Influence of Context on Sentence Acceptability Judgements', 'Exploring Semantic Properties of Sentence Embeddings', 'End-Task Oriented Textual Entailment via Deep Explorations of Inter-Sentence Interactions', 'Dynamic Sentence Sampling for Efficient Training of Neural Machine Translation', 'Breaking NLI Systems with Sentences that Require Simple Lexical Inferences'], 'relation': ['Improving Entity Linking by Modeling Latent Relations between Mentions', 'Improving Event Coreference Resolution by Modeling Correlations between Event Coreference Chains and Document Topic Structures', 'Working Memory Networks: Augmenting Memory Networks with a Relational Reasoning Module', 'Interpretable and Compositional Relation Learning by Joint Training with an Autoencoder', 'Higher-order Relation Schema Induction using Tensor Factorization with Back-off and Aggregation', 'Discourse Coherence: Concurrent Explicit and Implicit Relations', 'Multi-Relational Question Answering from Narratives: Machine Reading and Reasoning in Simulated Worlds', 'Robust Distant Supervision Relation Extraction via Deep Reinforcement Learning', 'Discovering Implicit Knowledge with Unary Relations', 'Joint Reasoning for Temporal and Causal Relations', 'Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism', 'Unsupervised Learning of Distributional Relation Vectors', 'A Multi-Axis Annotation Scheme for Event Temporal Relations', 'Paraphrase to Explicate: Revealing Implicit Noun-Compound Relations', 'Bridging Languages through Images with Deep Partial Canonical Correlation Analysis', 'DSGAN: Generative Adversarial Training for Distant Supervision Relation Extraction', 'Analogical Reasoning on Chinese Morphological and Semantic Relations', 'Ranking-Based Automatic Seed Selection and Noise Reduction for Weakly Supervised Relation Extraction', 'Injecting Relational Structural Representation in Neural Networks for Question Similarity', 'A Walk-based Model on Entity Graphs for Relation Extraction'], 'graph': ['Neural Factor Graph Models for Cross-lingual Morphological Tagging', 'Probabilistic Embedding of Knowledge Graphs with Box Lattice Measures', 'A Graph-to-Sequence Model for AMR-to-Text Generation', 'Graph-to-Sequence Learning using Gated Graph Neural Networks', 'Dating Documents using Graph Convolution Networks', 'Multimodal Language Analysis in the Wild: CMU-MOSEI Dataset and Interpretable Dynamic Fusion Graph', 'LinkNBed: Multi-Graph Representation Learning with Entity Linkage', 'Sequence-to-Action: End-to-End Semantic Graph Generation for Semantic Parsing', 'Towards Understanding the Geometry of Knowledge Graph Embeddings', 'Semi-supervised User Geolocation via Graph Convolutional Networks', 'Simple and Effective Multi-Paragraph Reading Comprehension', 'Domain Adaptation with Adversarial Training and Graph Embeddings', 'AMR Parsing as Graph Prediction with Latent Alignment', 'A Distributional and Orthographic Aggregation Model for English Derivational Morphology', 'Harvesting Paragraph-level Question-Answer Pairs from Wikipedia', 'Entity-Duet Neural Ranking: Understanding the Role of Knowledge Graph Semantics in Neural Information Retrieval', 'Improving Knowledge Graph Embedding Using Simple Constraints', 'Finding syntax in human encephalography with beam search', 'GNEG: Graph-Based Negative Sampling for word2vec', 'Orthographic Features for Bilingual Lexicon Induction', 'A Walk-based Model on Entity Graphs for Relation Extraction'], 'entity': ['Improving Entity Linking by Modeling Latent Relations between Mentions', 'Entity-Centric Joint Modeling of Japanese Coreference Resolution and Predicate Argument Structure Analysis', 'Coherence Modeling of Asynchronous Conversations: A Neural Entity Grid Approach', 'Ultra-Fine Entity Typing', 'LinkNBed: Multi-Graph Representation Learning with Entity Linkage', 'Hierarchical Losses and New Resources for Fine-grained Entity Typing and Linking', 'Generating Fine-Grained Open Vocabulary Entity Type Descriptions', 'Entity-Duet Neural Ranking: Understanding the Role of Knowledge Graph Semantics in Neural Information Retrieval', 'Multimodal Named Entity Disambiguation for Noisy Social Media Posts', 'A Named Entity Recognition Shootout for German', 'Neural Cross-Lingual Coreference Resolution And Its Application To Entity Linking', 'A Study of the Importance of External Knowledge in the Named Entity Recognition Task', 'diaNED: Time-Aware Named Entity Disambiguation for Diachronic Corpora', 'A Walk-based Model on Entity Graphs for Relation Extraction', 'Named Entity Recognition With Parallel Recurrent Neural Networks'], 'improving': ['Improving Entity Linking by Modeling Latent Relations between Mentions', 'Numeracy for Language Models: Evaluating and Improving their Ability to Predict Numbers', 'Improving Event Coreference Resolution by Modeling Correlations between Event Coreference Chains and Document Topic Structures', 'Improving Text-to-SQL Evaluation Methodology', 'Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates', 'Improving Knowledge Graph Embedding Using Simple Constraints', 'Improving a Neural Semantic Parser by Counterfactual Learning from Human Bandit Feedback', 'Improving Beam Search by Removing Monotonic Constraint for Neural Machine Translation', 'Using pseudo-senses for improving the extraction of synonyms from word embeddings', 'Adaptive Knowledge Sharing in Multi-Task Learning: Improving Low-Resource Neural Machine Translation', 'Improving Topic Quality by Promoting Named Entities in Topic Modeling', 'Improving Slot Filling in Spoken Language Understanding with Joint Pointer and Attention', 'Autoencoder as Assistant Supervisor: Improving Text Representation for Chinese Social Media Text Summarization'], 'question': ['Question Condensing Networks for Answer Selection in Community Question Answering', 'Think Visually: Question Answering through Virtual Imagery', 'Soft Layer-Specific Multi-Task Summarization with Entailment and Question Generation', 'Multi-Relational Question Answering from Narratives: Machine Reading and Reasoning in Simulated Worlds', 'Learning to Ask Questions in Open-domain Conversational Systems with Typed Decoders', 'Efficient and Robust Question Answering from Minimal Context over Documents', 'Denoising Distantly Supervised Open-Domain Question Answering', 'Multi-Granularity Hierarchical Attention Fusion Networks for Reading Comprehension and Question Answering', 'Did the Model Understand the Question?', 'Learning to Ask Good Questions: Ranking Clarification Questions using Neural Expected Value of Perfect Information', 'Harvesting Paragraph-level Question-Answer Pairs from Wikipedia', 'Transfer Learning for Context-Aware Question Matching in Information-seeking Conversations in E-commerce', 'CNN for Text-Based Multiple Choice Question Answering', 'Injecting Relational Structural Representation in Neural Networks for Question Similarity', 'Know What You Don’t Know: Unanswerable Questions for SQuAD'], 'automatic': ['Automatic Metric Validation for Grammatical Error Correction', 'End-to-End Reinforcement Learning for Automatic Taxonomy Induction', 'On the Automatic Generation of Medical Imaging Reports', 'The price of debiasing automatic metrics in natural language evalaution', 'Conceptual Captions: A Cleaned, Hypernymed, Image Alt-text Dataset For Automatic Image Captioning', 'Automatic Estimation of Simultaneous Interpreter Performance', 'Automatic Article Commenting: the Task and Dataset', 'Investigating Audio, Video, and Text Fusion Methods for End-to-End Automatic Personality Prediction', 'Automatic Extraction of Commonsense LocatedNear Knowledge', 'Task-oriented Dialogue System for Automatic Diagnosis', 'Ranking-Based Automatic Seed Selection and Noise Reduction for Weakly Supervised Relation Extraction', 'Hearst Patterns Revisited: Automatic Hypernym Detection from Large Text Corpora', 'Automatic Academic Paper Rating Based on Modularized Hierarchical Convolutional Neural Network'], 'prediction': ['What Action Causes This? Towards Naive Physical Action-Effect Prediction', 'Distilling Knowledge for Search-based Structured Prediction', 'Stock Movement Prediction from Tweets and Historical Prices', 'Incorporating Chinese Characters of Words for Lexical Sememe Prediction', 'Modeling and Prediction of Online Product Review Helpfulness: A Survey', 'From Credit Assignment to Entropy Regularization: Two New Algorithms for Neural Sequence Prediction', 'AMR Parsing as Graph Prediction with Latent Alignment', 'Bleaching Text: Abstract Features for Cross-lingual Gender Prediction', 'Investigating Audio, Video, and Text Fusion Methods for End-to-End Automatic Personality Prediction', 'Content-based Popularity Prediction of Online Petitions Using a Deep Regression Model', 'Leveraging distributed representations and lexico-syntactic fixedness for token-level prediction of the idiomaticity of English verb-noun combinations', 'Party Matters: Enhancing Legislative Embeddings with Author Attributes for Vote Prediction'], 'analysis': ['A Helping Hand: Transfer Learning for Deep Sentiment Analysis', 'Aspect Based Sentiment Analysis with Gated Convolutional Networks', 'Entity-Centric Joint Modeling of Japanese Coreference Resolution and Predicate Argument Structure Analysis', 'Neural Adversarial Training for Semi-supervised Japanese Predicate-argument Structure Analysis', 'Multimodal Language Analysis in the Wild: CMU-MOSEI Dataset and Interpretable Dynamic Fusion Graph', 'Textual Deconvolution Saliency (TDS) : a deep tool box for linguistic analysis', 'How Much Attention Do You Need? A Granular Analysis of Neural Machine Translation Architectures', 'Multimodal Affective Analysis Using Hierarchical Attention Strategy with Word-Level Alignment', 'Bridging Languages through Images with Deep Partial Canonical Correlation Analysis', 'Construction of a Chinese Corpus for the Analysis of the Emotionality of Metaphorical Expressions'], 'end-to-end': ['NASH: Toward End-to-End Neural Architecture for Generative Semantic Hashing', 'NeuralREG: An end-to-end approach to referring expression generation', 'Sentiment Adaptive End-to-End Dialog Systems', 'A Purely End-to-End System for Multi-speaker Speech Recognition', 'Sequence-to-Action: End-to-End Semantic Graph Generation for Semantic Parsing', 'Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism', 'End-to-End Reinforcement Learning for Automatic Taxonomy Induction', 'Mem2Seq: Effectively Incorporating Knowledge Bases into End-to-End Task-Oriented Dialog Systems', 'An End-to-end Approach for Handling Unknown Slot Values in Dialogue State Tracking', 'Investigating Audio, Video, and Text Fusion Methods for End-to-End Automatic Personality Prediction'], 'detection': ['Rumor Detection on Twitter with Tree-structured Recursive Neural Networks', 'Adaptive Scaling for Sparse Detection in Information Extraction', 'Pre- and In-Parsing Models for Neural Empty Category Detection', 'Nugget Proposal Networks for Chinese Event Detection', 'Self-regulation: Employing a Generative Adversarial Network to Improve Event Detection', 'Neural Coreference Resolution with Deep Biaffine Attention by Joint Mention Detection and Mention Clustering', 'Disambiguating False-Alarm Hashtag Usages in Tweets for Irony Detection', 'Document Embedding Enhanced Event Detection with Hierarchical and Supervised Attention', 'Improved Evaluation Framework for Complex Plagiarism Detection', 'Hearst Patterns Revisited: Automatic Hypernym Detection from Large Text Corpora'], 'unsupervised': ['On the Limitations of Unsupervised Bilingual Dictionary Induction', 'A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings', 'Unsupervised Neural Machine Translation with Weight Sharing', 'Unsupervised Abstractive Meeting Summarization with Multi-Sentence Compression and Budgeted Submodular Maximization', 'Unsupervised Learning of Distributional Relation Vectors', 'Unsupervised Discrete Sentence Representation Learning for Interpretable Neural Dialog Generation', 'Multi-Input Attention for Unsupervised OCR Correction', 'Fighting Offensive Language on Social Media with Unsupervised Text Style Transfer', 'Unsupervised Semantic Frame Induction using Triclustering', 'Unsupervised Learning of Style-sensitive Word Vectors']};
+
+
+    var name_10 = Object.getOwnPropertyNames(allPapers);
+
+    var box = document.getElementById("box");
+
+    var liObjs = document.getElementsByTagName("li");
+
+    //遍历li标签，为每个标签创建事件
+    for (var i = 0; i < liObjs.length; i++) {
+        //添加li标签的内容
+        liObjs[i].innerText = name_10[i];
+        // liObjs[i].id = i;
+        //添加鼠标悬停事件
+        liObjs[i].onmouseover = function () {
+            var liName = this.innerText;
+            if (my$(liName + "div")) {
+                my$("box").removeChild(my$(liName + "div"));
+            }
+            var paperList = allPapers[liName];
+
+            //创建div对象
+            var divObj = document.createElement("div");
+            divObj.className = "childBox";
+            divObj.id = liName + "div";
+            //创建p对象
+            //限定显示的论文数量不超过15
+            var paperLength = paperList.length < 15 ? paperList.length : 15;
+            for (var i = 0; i < paperLength; i++) {
+                var pObj = document.createElement("p");
+                pObj.innerText = paperList[i];
+                divObj.appendChild(pObj);
+            }
+            box.appendChild(divObj);
+        };
+        //添加鼠标离开事件
+        liObjs[i].onmouseout = function () {
+            var liName = this.innerText;
+            if (my$(liName + "div")) {
+                my$("box").removeChild(my$(liName + "div"));
             }
         }
-    ],
-    "legend": [
-        {
-            "data": [
-                "model",
-                "language",
-                "semantic",
-                "word",
-                "embedding",
-                "parsing",
-                "translation",
-                "machine",
-                "representation",
-                "knowledge",
-                "generation",
-                "modeling",
-                "text",
-                "document",
-                "extraction",
-                "attention",
-                "sentiment",
-                "classification",
-                "sentence",
-                "relation",
-                "graph",
-                "entity",
-                "improving",
-                "question",
-                "automatic",
-                "prediction",
-                "analysis",
-                "end-to-end",
-                "detection",
-                "unsupervised"
-            ],
-            "selected": {},
-            "show": true,
-            "left": "0%",
-            "top": "10%",
-            "orient": "vertical"
-        }
-    ],
-    "tooltip": {
-        "show": true,
-        "trigger": "item",
-        "triggerOn": "mousemove|click",
-        "axisPointer": {
-            "type": "line"
-        },
-        "textStyle": {
-            "fontSize": 14
-        },
-        "borderWidth": 0
-    },
-    "title": [
-        {
-            "text": "ACL-2018"
-        }
-    ]
-};
-        chart_6c1677ca823f4645adf58a52f4fcc710.setOption(option_6c1677ca823f4645adf58a52f4fcc710);
-    </script>
+    }
+
+
+</script>
+<script>
+    my$("btn").onclick=function () {
+        window.location.href="ACL历年投稿论文数情况.html";
+    }
+</script>
 </body>
 </html>

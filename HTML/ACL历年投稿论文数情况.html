@@ -25,6 +25,18 @@
         dl dd {
             cursor: pointer;
         }
+        input {
+            position: absolute;
+            bottom: -55px;
+            left: 840px;
+            outline: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100px;
+            height: 40px;
+        }
 
     </style>
 </head>
@@ -35,7 +47,9 @@
         <dd id="acl17">2017</dd>
         <dd id="acl18">2018</dd>
         <dd id="acl19">2019</dd>
+        <dd id="trend">类别数目趋势图</dd>
     </dl>
+    <input type="button" value="返回首页" id="btn">
 
     <div id="98f7ef50cb944021a46441344ba00f90" class="chart-container" style="width:1200px; height:600px;"></div>
 </div>
@@ -305,16 +319,22 @@
     };
     chart_98f7ef50cb944021a46441344ba00f90.setOption(option_98f7ef50cb944021a46441344ba00f90);
 </script>
-<script src="common.js"></script>
+<script src="../js/common.js"></script>
 <script>
     my$("acl17").onclick=function () {
         window.location.href="ACL-2017-Pie.html";
-    }
+    };
     my$("acl18").onclick=function () {
         window.location.href="ACL-2018-Pie.html";
-    }
+    };
     my$("acl19").onclick=function () {
         window.location.href="ACL-2019-Pie.html";
+    };
+    my$("trend").onclick=function(){
+        window.location.href="ACL各主题趋势图.html";
+    };
+    my$("btn").onclick=function () {
+        window.location.href="..\\index.html"
     }
 </script>
 </body>

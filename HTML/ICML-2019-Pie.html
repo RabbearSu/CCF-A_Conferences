@@ -2,258 +2,395 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <title>ICML 2019 各类别饼图</title>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <style>
+        #box {
+            position: absolute;
+            top: 40px;
+            right: 120px;
+        }
 
+        ul {
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #ccc;
+        }
+
+        ul li {
+            font-size: 30px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+            /*margin-top: 10px;*/
+            list-style: none;
+        }
+
+        ul li:nth-of-type(5n) {
+            color: #C23531;
+        }
+
+        ul li:nth-of-type(5n+1) {
+            color: #2F4554;
+        }
+        ul li:nth-of-type(5n+2) {
+            color: #61A0A8;
+        }
+        ul li:nth-of-type(5n+3) {
+            color: #D48265;
+        }
+        ul li:nth-of-type(5n+4) {
+            color: #749F83;
+        }
+
+        .childBox {
+            position: absolute;
+            background-color: #FFF;
+            border: 1px solid #ccc;
+            width: 1000px;
+            left: -1020px;
+            top: 0;
+            z-index: 999;
+            padding-left: 10px;
+        }
+
+        .childBox p {
+            color: #749F83;
+        }
+
+        input {
+            position: absolute;
+            outline: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100px;
+            height: 40px;
+            bottom: 10%;
+            left: 35%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
 </head>
 <body>
-    <div id="42aefc23eefe42459abd742ab0fa3a70" class="chart-container" style="width:900px; height:500px;"></div>
-    <script>
-        var chart_42aefc23eefe42459abd742ab0fa3a70 = echarts.init(
-            document.getElementById('42aefc23eefe42459abd742ab0fa3a70'), 'white', {renderer: 'canvas'});
-        var option_42aefc23eefe42459abd742ab0fa3a70 = {
-    "animation": true,
-    "animationThreshold": 2000,
-    "animationDuration": 1000,
-    "animationEasing": "cubicOut",
-    "animationDelay": 0,
-    "animationDurationUpdate": 300,
-    "animationEasingUpdate": "cubicOut",
-    "animationDelayUpdate": 0,
-    "color": [
-        "#c23531",
-        "#2f4554",
-        "#61a0a8",
-        "#d48265",
-        "#749f83",
-        "#ca8622",
-        "#bda29a",
-        "#6e7074",
-        "#546570",
-        "#c4ccd3",
-        "#f05b72",
-        "#ef5b9c",
-        "#f47920",
-        "#905a3d",
-        "#fab27b",
-        "#2a5caa",
-        "#444693",
-        "#726930",
-        "#b2d235",
-        "#6d8346",
-        "#ac6767",
-        "#1d953f",
-        "#6950a1",
-        "#918597"
-    ],
-    "series": [
-        {
-            "type": "pie",
-            "clockwise": true,
-            "data": [
-                {
-                    "name": "model",
-                    "value": 71
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<input type="button" value="返回" id="btn">
+<div id="42aefc23eefe42459abd742ab0fa3a70" class="chart-container" style="width:900px; height:500px;"></div>
+<script>
+    var chart_42aefc23eefe42459abd742ab0fa3a70 = echarts.init(
+        document.getElementById('42aefc23eefe42459abd742ab0fa3a70'), 'white', {renderer: 'canvas'});
+    var option_42aefc23eefe42459abd742ab0fa3a70 = {
+        "animation": true,
+        "animationThreshold": 2000,
+        "animationDuration": 1000,
+        "animationEasing": "cubicOut",
+        "animationDelay": 0,
+        "animationDurationUpdate": 300,
+        "animationEasingUpdate": "cubicOut",
+        "animationDelayUpdate": 0,
+        "color": [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+            "#f05b72",
+            "#ef5b9c",
+            "#f47920",
+            "#905a3d",
+            "#fab27b",
+            "#2a5caa",
+            "#444693",
+            "#726930",
+            "#b2d235",
+            "#6d8346",
+            "#ac6767",
+            "#1d953f",
+            "#6950a1",
+            "#918597"
+        ],
+        "series": [
+            {
+                "type": "pie",
+                "clockwise": true,
+                "data": [
+                    {
+                        "name": "model",
+                        "value": 71
+                    },
+                    {
+                        "name": "reinforcement",
+                        "value": 43
+                    },
+                    {
+                        "name": "adversarial",
+                        "value": 42
+                    },
+                    {
+                        "name": "optimization",
+                        "value": 39
+                    },
+                    {
+                        "name": "gradient",
+                        "value": 36
+                    },
+                    {
+                        "name": "data",
+                        "value": 36
+                    },
+                    {
+                        "name": "graph",
+                        "value": 35
+                    },
+                    {
+                        "name": "inference",
+                        "value": 35
+                    },
+                    {
+                        "name": "stochastic",
+                        "value": 32
+                    },
+                    {
+                        "name": "algorithm",
+                        "value": 32
+                    },
+                    {
+                        "name": "efficient",
+                        "value": 30
+                    },
+                    {
+                        "name": "generative",
+                        "value": 29
+                    },
+                    {
+                        "name": "bayesian",
+                        "value": 29
+                    },
+                    {
+                        "name": "variational",
+                        "value": 27
+                    },
+                    {
+                        "name": "representation",
+                        "value": 24
+                    },
+                    {
+                        "name": "optimal",
+                        "value": 23
+                    },
+                    {
+                        "name": "training",
+                        "value": 22
+                    },
+                    {
+                        "name": "analysis",
+                        "value": 22
+                    },
+                    {
+                        "name": "adaptive",
+                        "value": 21
+                    },
+                    {
+                        "name": "function",
+                        "value": 21
+                    },
+                    {
+                        "name": "online",
+                        "value": 18
+                    },
+                    {
+                        "name": "robust",
+                        "value": 18
+                    },
+                    {
+                        "name": "policy",
+                        "value": 18
+                    },
+                    {
+                        "name": "descent",
+                        "value": 18
+                    },
+                    {
+                        "name": "application",
+                        "value": 18
+                    },
+                    {
+                        "name": "linear",
+                        "value": 18
+                    },
+                    {
+                        "name": "kernel",
+                        "value": 17
+                    },
+                    {
+                        "name": "estimation",
+                        "value": 16
+                    },
+                    {
+                        "name": "structured",
+                        "value": 15
+                    },
+                    {
+                        "name": "understanding",
+                        "value": 15
+                    }
+                ],
+                "radius": [
+                    "0%",
+                    "75%"
+                ],
+                "center": [
+                    "65%",
+                    "55%"
+                ],
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "margin": 8,
+                    "formatter": "{b}: {c}"
                 },
-                {
-                    "name": "reinforcement",
-                    "value": 43
-                },
-                {
-                    "name": "adversarial",
-                    "value": 42
-                },
-                {
-                    "name": "optimization",
-                    "value": 39
-                },
-                {
-                    "name": "gradient",
-                    "value": 36
-                },
-                {
-                    "name": "data",
-                    "value": 36
-                },
-                {
-                    "name": "graph",
-                    "value": 35
-                },
-                {
-                    "name": "inference",
-                    "value": 35
-                },
-                {
-                    "name": "stochastic",
-                    "value": 32
-                },
-                {
-                    "name": "algorithm",
-                    "value": 32
-                },
-                {
-                    "name": "efficient",
-                    "value": 30
-                },
-                {
-                    "name": "generative",
-                    "value": 29
-                },
-                {
-                    "name": "bayesian",
-                    "value": 29
-                },
-                {
-                    "name": "variational",
-                    "value": 27
-                },
-                {
-                    "name": "representation",
-                    "value": 24
-                },
-                {
-                    "name": "optimal",
-                    "value": 23
-                },
-                {
-                    "name": "training",
-                    "value": 22
-                },
-                {
-                    "name": "analysis",
-                    "value": 22
-                },
-                {
-                    "name": "adaptive",
-                    "value": 21
-                },
-                {
-                    "name": "function",
-                    "value": 21
-                },
-                {
-                    "name": "online",
-                    "value": 18
-                },
-                {
-                    "name": "robust",
-                    "value": 18
-                },
-                {
-                    "name": "policy",
-                    "value": 18
-                },
-                {
-                    "name": "descent",
-                    "value": 18
-                },
-                {
-                    "name": "application",
-                    "value": 18
-                },
-                {
-                    "name": "linear",
-                    "value": 18
-                },
-                {
-                    "name": "kernel",
-                    "value": 17
-                },
-                {
-                    "name": "estimation",
-                    "value": 16
-                },
-                {
-                    "name": "structured",
-                    "value": 15
-                },
-                {
-                    "name": "understanding",
-                    "value": 15
+                "rippleEffect": {
+                    "show": true,
+                    "brushType": "stroke",
+                    "scale": 2.5,
+                    "period": 4
                 }
-            ],
-            "radius": [
-                "0%",
-                "75%"
-            ],
-            "center": [
-                "65%",
-                "55%"
-            ],
-            "label": {
+            }
+        ],
+        "legend": [
+            {
+                "data": [
+                    "model",
+                    "reinforcement",
+                    "adversarial",
+                    "optimization",
+                    "gradient",
+                    "data",
+                    "graph",
+                    "inference",
+                    "stochastic",
+                    "algorithm",
+                    "efficient",
+                    "generative",
+                    "bayesian",
+                    "variational",
+                    "representation",
+                    "optimal",
+                    "training",
+                    "analysis",
+                    "adaptive",
+                    "function",
+                    "online",
+                    "robust",
+                    "policy",
+                    "descent",
+                    "application",
+                    "linear",
+                    "kernel",
+                    "estimation",
+                    "structured",
+                    "understanding"
+                ],
+                "selected": {},
                 "show": true,
-                "position": "top",
-                "margin": 8,
-                "formatter": "{b}: {c}"
+                "left": "0%",
+                "top": "10%",
+                "orient": "vertical"
+            }
+        ],
+        "tooltip": {
+            "show": true,
+            "trigger": "item",
+            "triggerOn": "mousemove|click",
+            "axisPointer": {
+                "type": "line"
             },
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
+            "textStyle": {
+                "fontSize": 14
+            },
+            "borderWidth": 0
+        },
+        "title": [
+            {
+                "text": "ICML-2019"
+            }
+        ]
+    };
+    chart_42aefc23eefe42459abd742ab0fa3a70.setOption(option_42aefc23eefe42459abd742ab0fa3a70);
+</script>
+<script src="../js/common.js"></script>
+<script>
+
+    var allPapers = {'model': ['Processing Megapixel Images with Deep Attention-Sampling Models', 'Revisiting precision recall definition for generative modeling', 'Wasserstein of Wasserstein Loss for Learning Generative Models', 'Flat Metric Minimization with Applications in Generative Modeling', 'TibGM: A Transferable and Information-Based Graphical Model Approach for Reinforcement Learning', 'An Investigation of Model-Free Planning', 'Using Pre-Training Can Improve Model Robustness and Uncertainty', 'Lexicographic and Depth-Sensitive Margins in Homogeneous and Non-Homogeneous Deep Models', 'DeepMDP: Learning Continuous Latent Space Models for Representation Learning', 'Improving Model Selection by Employing the Test Data', 'Topological Data Analysis of Decision Boundaries with Application to Model Selection', 'AUCµ: A Performance Metric for Multi-Class Machine Learning Models', 'Heterogeneous Model Reuse via Optimizing Multiparty Multiclass Margin', 'EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks', 'A Personalized Affective Memory Model for Improving Emotion Recognition', 'Inference and Sampling of $K_{33}$-free Ising Models', 'Rate Distortion For Model Compression:From Theory To Practice', 'Graphical-model based estimation and inference for differential privacy', 'Sublinear Space Private Algorithms Under the Sliding Window Model', 'Locally Private Bayesian Inference for Count Models', 'Passed & Spurious: Descent Algorithms and Local Minima in Spiked Matrix-Tensor Models', 'Weak Detection of Signal in the Spiked Wigner Model', 'Validating Causal Inference Models via Influence Functions', 'Graph Neural Network for Music Score Data and Modeling Expressive Piano Performance', 'Generative Adversarial User Model for Reinforcement Learning Based Recommendation System', 'Decomposing feature-level variation with Covariate Gaussian Process Latent Variable Models', 'Generalized Linear Rule Models', 'Robust Influence Maximization for Hyperparametric Models', 'HyperGAN: A Generative Model for Diverse, Performant Neural Networks', 'Overcoming Multi-model Forgetting', 'SOLAR: Deep Structured Representations for Model-Based Reinforcement Learning', 'Model-Based Active Exploration', 'Discriminative Regularization for Latent Variable Models with Applications to Electrocardiography', 'Flow++: Improving Flow-Based Generative Models with Variational Dequantization and Architecture Design', 'Learning Neurosymbolic Generative Models via Program Synthesis', 'Counterfactual Off-Policy Evaluation with Gumbel-Max Structural Causal Models', 'Causal Discovery and Forecasting in Nonstationary Environments with State-Space Models', 'Learning Models from Data with Measurement Error: Tackling Underreporting', 'Sensitivity Analysis of Linear Structural Causal Models', 'Traditional and Heavy Tailed Self Regularization in Neural Network Models', 'Combining parametric and nonparametric models for off-policy evaluation', 'Generative Modeling of Infinite Occluded Objects for Compositional Scene Representation', 'Submodular Observation Selection and Information Gathering for Quadratic Models', 'Learning Generative Models across Incomparable Spaces', 'A Recurrent Neural Cascade-based Model for Continuous-Time Diffusion', 'Stochastic Blockmodels meet Graph Neural Networks', 'Collective Model Fusion for Multiple Black-Box Experts', 'On the statistical rate of nonlinear recovery in generative models with heavy-tailed data', 'Differential Inclusions for Modeling Nonsmooth ADMM Variants: A Continuous Limit Theory', 'Overcoming Mean-Field Approximations in Recurrent Gaussian Process Models', 'Automated Model Selection with Bayesian Quadrature', 'Beyond the Chinese Restaurant and Pitman-Yor processes: Statistical Models with double power-law behavior', 'DP-GP-LVM: A Bayesian Non-Parametric Model for Learning Multivariate Dependency Structures', 'Random Function Priors for Correlation Modeling', 'Scalable Training of Inference Networks for Gaussian-Process Models', 'Learning interpretable continuous-time models of latent stochastic dynamical systems', 'Nonlinear Stein Variational Gradient Descent for Learning Diversified Mixture Models', 'An Instability in Variational Inference for Topic Models', 'Cognitive model priors for predicting human decisions', 'Towards Accurate Model Selection in Deep Unsupervised Domain Adaptation', 'Hybrid Models with Deep and Invertible Features', 'State-Reification Networks: Improving Generalization by Modeling the Distribution of Hidden Representations', 'Graphite: Iterative Generative Modeling of Graphs', 'MIWAE: Deep Generative Modelling and Imputation of Incomplete Data Sets', 'LIT: Learned Intermediate Representation Training for Model Compression', 'Calibrated Model-Based Deep Reinforcement Learning', 'CoT: Cooperative Training for Generative Modeling of Discrete Data', 'Empirical Analysis of Beam Search Performance Degradation in Neural Sequence Models', 'Trainable Decoding of Sets of Sequences for Neural Sequence Models', 'Contextual Multi-armed Bandit Algorithm for Semiparametric Reward Model', 'Towards a Deep and Unified Understanding of Deep Neural Models in NLP', 'Why do Larger Models Generalize Better? A Theoretical Perspective via the XOR Problem', 'Probabilistic Neural Symbolic Models for Interpretable Visual Question Answering', 'Good Initializations of Variational Bayes for Deep Models', 'Faster Attend-Infer-Repeat with Tractable Probabilistic Models', 'Model Function Based Conditional Gradient Method with Armijo-like Line Search', 'Efficient On-Device Models using Neural Projections', 'Improving Neural Language Modeling via Adversarial Training', 'Mixture Models for Diverse Machine Translation: Tricks of the Trade', 'MeanSum: A Neural Model for Unsupervised Multi-Document Abstractive Summarization', 'Learning Dependency Structures for Weak Supervision Models', 'On Sparse Linear Regression in the Local Differential Privacy Model', 'Adaptive Scale-Invariant Online Algorithms for Learning Linear Models', 'Unsupervised Label Noise Modeling and Loss Correction', 'Complementary-Label Learning for Arbitrary Losses and Models', 'Sliced-Wasserstein Flows: Nonparametric Generative Modeling via Optimal Transport and Diffusions', 'Robust Estimation of Tree Structured Gaussian Graphical Models', 'Partially Linear Additive Gaussian Graphical Models', 'Model Comparison for Semantic Grouping', 'Mallows ranking models: maximum likelihood estimate and regeneration', 'Fast and Stable Maximum Likelihood Estimation for Incomplete Multinomial Models', 'Fast Algorithm for Generalized Multinomial Models with Ranking Data'], 'reinforcement': ['TibGM: A Transferable and Information-Based Graphical Model Approach for Reinforcement Learning', 'Multi-Agent Adversarial Inverse Reinforcement Learning', 'Policy Consolidation for Continual Reinforcement Learning', 'Off-Policy Deep Reinforcement Learning without Exploration', 'CURIOUS: Intrinsically Motivated Modular Multi-Goal Reinforcement Learning', 'Task-Agnostic Dynamics Priors for Deep Reinforcement Learning', 'Collaborative Evolutionary Reinforcement Learning', 'Dynamic Weights in Multi-Objective Deep Reinforcement Learning', 'Fingerprint Policy Optimisation for Robust Reinforcement Learning', 'Distributional Reinforcement Learning for Efficient Exploration', 'Neural Logic Reinforcement Learning', 'Learning a Prior over Intent via Meta-Inverse Reinforcement Learning', 'Learning Action Representations for Reinforcement Learning', 'Tighter Problem-Dependent Regret Bounds in Reinforcement Learning without Domain Knowledge using Value Function Bounds', 'Policy Certificates: Towards Accountable Reinforcement Learning', 'The Value Function Polytope in Reinforcement Learning', 'Information-Theoretic Considerations in Batch Reinforcement Learning', 'Grid-Wise Control for Multi-Agent Reinforcement Learning in Video Game AI', 'Generative Adversarial User Model for Reinforcement Learning Based Recommendation System', 'Probability Functional Descent: A Unifying Perspective on GANs, Variational Inference, and Reinforcement Learning', 'Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning', 'Maximum Entropy-Regularized Multi-Goal Reinforcement Learning', 'SOLAR: Deep Structured Representations for Model-Based Reinforcement Learning', 'Dimension-Wise Importance Sampling Weight Clipping for Sample-Efficient Reinforcement Learning', 'Taming MAML: Efficient unbiased meta-reinforcement learning', 'Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables', 'Control Regularization for Reduced Variance Reinforcement Learning', 'On the Generalization Gap in Reparameterizable Reinforcement Learning', 'Trajectory-Based Off-Policy Deep Reinforcement Learning', 'A Deep Reinforcement Learning Perspective on Internet Congestion Control', 'Extrapolating Beyond Suboptimal Demonstrations via Inverse Reinforcement Learning from Observations', 'Exploration Conscious Reinforcement Learning Revisited', 'Dead-ends and Secure Exploration in Reinforcement Learning', 'Statistics and Samples in Distributional Reinforcement Learning', 'Action Robust Reinforcement Learning and Applications in Continuous Control', 'Kernel-Based Reinforcement Learning in Robust Markov Decision Processes', 'Composing Value Functions in Reinforcement Learning', 'Quantifying Generalization in Reinforcement Learning', 'Calibrated Model-Based Deep Reinforcement Learning', 'Reinforcement Learning in Configurable Continuous Environments', 'Bayesian Action Decoder for Deep Multi-Agent Reinforcement Learning', 'QTRAN: Learning to Factorize with Transformation for Cooperative Multi-Agent Reinforcement Learning', 'Actor-Attention-Critic for Multi-Agent Reinforcement Learning', 'Finite-Time Analysis of Distributed TD(0) with Linear Function Approximation on Multi-Agent Reinforcement Learning', 'Transfer Learning for Related Reinforcement Learning Tasks via Image-to-Image Translation'], 'adversarial': ['Self-Attention Generative Adversarial Networks', 'Multivariate-Information Adversarial Ensemble for Scalable Joint Distribution Matching', 'Non-Parametric Priors For Generative Adversarial Networks', 'Lipschitz Generative Adversarial Nets', 'HexaGAN: Generative Adversarial Nets for Real World Classification', 'Multi-Agent Adversarial Inverse Reinforcement Learning', 'Adversarial Attacks on Node Embeddings via Graph Poisoning', 'First-Order Adversarial Vulnerability of Neural Networks and Input Dimension', 'On Certifying Non-Uniform Bounds against Adversarial Attacks', 'Improving Adversarial Robustness via Promoting Ensemble Diversity', 'Adversarial camera stickers: A physical camera-based attack on deep learning systems', 'Adversarial examples from computational constraints', 'Generalized No Free Lunch Theorem for Adversarial Robustness', 'Adversarial Generation of Time-Frequency Features with application in audio synthesis', 'Robust Decision Trees Against Adversarial Examples', 'Rademacher Complexity for Adversarially Robust Generalization', 'Generative Adversarial User Model for Reinforcement Learning Based Recommendation System', 'Are Generative Classifiers More Robust to Adversarial Attacks?', 'Finding Mixed Nash Equilibria of Generative Adversarial Networks', 'The Odds are Odd: A Statistical Test for Detecting Adversarial Examples', 'ME-Net: Towards Effective Adversarial Robustness with Matrix Estimation', 'Certified Adversarial Robustness via Randomized Smoothing', 'Imperceptible, Robust, and Targeted Adversarial Examples for Automatic Speech Recognition', 'Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization', 'Wasserstein Adversarial Examples via Projected Sinkhorn Iterations', 'NATTACK: Learning the Distributions of Adversarial Examples for an Improved Black-Box Attack on Deep Neural Networks', 'Simple Black-box Adversarial Attacks', 'Adversarially Learned Representations for Information Obfuscation and Inference', 'Adversarial Examples Are a Natural Consequence of Test Error in Noise', 'Beating Stochastic and Adversarial Semi-bandits Optimally and Simultaneously', 'Analyzing Federated Learning through an Adversarial Lens', 'Interpreting Adversarially Trained Convolutional Neural Networks', 'On the Convergence and Robustness of Adversarial Training', 'Monge blunts Bayes: Hardness Results for Adversarial Training', 'AReS and MaRS - Adversarial and MMD-Minimizing Regression for SDEs', 'Transferable Adversarial Training: A General Approach to Adapting Deep Classifiers', 'Transferability vs. Discriminability: Batch Spectral Penalization for Adversarial Domain Adaptation', 'Multi-objective training of Generative Adversarial Networks with multiple discriminators', 'On the Connection Between Adversarial Robustness and Saliency Map Interpretability', 'Improving Neural Language Modeling via Adversarial Training', 'Online Convex Optimization in Adversarial Markov Decision Processes', 'Competing Against Nash Equilibria in Adversarially Changing Zero-Sum Games', 'Online Control with Adversarial Disturbances', 'Adversarial Online Learning with noise', 'Metropolis-Hastings Generative Adversarial Networks', 'MetricGAN: Generative Adversarial Networks based Black-box Metric Scores Optimization for Speech Enhancement'], 'optimization': ['An Investigation into Neural Net Optimization via Hessian Eigenvalue Density', 'Efficient optimization of loops and limits with randomized telescoping sums', 'Fine-Grained Analysis of Optimization and Generalization for Overparameterized Two-Layer Neural Networks', 'PA-GD: On the Convergence of Perturbed Alternating Gradient Descent to Second-Order Stationary Points for Structured Nonconvex Optimization', 'Improved Zeroth-Order Variance Reduced Algorithms and Analysis for Nonconvex Optimization', 'Faster Stochastic Alternating Direction Method of Multipliers for Nonconvex Optimization', 'Lower Bounds for Smooth Nonconvex Finite-Sum Optimization', 'Nonconvex Variance Reduced Optimization with Arbitrary Sampling', 'Multiplicative Weights Updates as a distributed constrained optimization algorithm: Convergence to second-order stationary points almost always', 'Optimistic Policy Optimization via Multiple Importance Sampling', 'Predictor-Corrector Policy Optimization', 'Game Theoretic Optimization via Gradient-based Nikaido-Isoda Function', 'Decentralized Stochastic Optimization and Gossip Algorithms with Compressed Communication', 'A Framework for Bayesian Optimization in Embedded Subspaces', 'Molecular Hypergraph Grammar with Its Application to Molecular Optimization', 'Approximated Oracle Filter Pruning for Destructive CNN Width Optimization', 'Understanding the Impact of Entropy on Policy Optimization', 'Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization', 'Almost surely constrained convex optimization', 'On the Computation and Communication Complexity of Parallel SGD with Dynamic Batch Sizes for Stochastic Non-Convex Optimization', 'Simple Stochastic Gradient Methods for Non-Smooth Non-Convex Regularized Optimization', 'Surrogate Losses for Online Learning of Stepsizes in Stochastic Non-Convex Optimization', 'Stochastic Optimization for DC Functions and Non-smooth Non-convex Regularizers with Non-asymptotic Convergence', 'Sever: A Robust Meta-Algorithm for Stochastic Optimization', 'Multivariate Submodular Optimization', 'On the Linear Speedup Analysis of Communication Efficient Momentum SGD for Distributed Non-Convex Optimization', 'Trading Redundancy for Communication: Speeding up Distributed SGD for Non-convex Optimization', 'Trimming the $\\ell_1$ Regularizer: Statistical Analysis, Optimization, and Applications to Deep Learning', 'Estimate Sequences for Variance-Reduced Stochastic Composite Optimization', 'Bayesian Optimization Meets Bayesian Optimal Stopping', 'Bayesian Optimization of Composite Functions', 'Quantile Stein Variational Gradient Descent for Batch Bayesian Optimization', 'Stochastic Iterative Hard Thresholding for Graph-structured Sparsity Optimization', 'Width Provably Matters in Optimization for Deep Linear Neural Networks', 'Categorical Feature Compression via Submodular Optimization', 'Adaptive and Safe Bayesian Optimization in High Dimensions via One-Dimensional Subspaces', 'Online Convex Optimization in Adversarial Markov Decision Processes', 'Cautious Regret Minimization: Online Optimization with Long-Term Budget Constraints', 'Non-Asymptotic Analysis of Fractional Langevin Monte Carlo for Non-Convex Optimization', 'MetricGAN: Generative Adversarial Networks based Black-box Metric Scores Optimization for Speech Enhancement'], 'gradient': ['Nonlinear Distributional Gradient Temporal-Difference Learning', 'Adaptive Stochastic Natural Gradient Method for One-Shot Neural Architecture Search', 'A Quantitative Analysis of the Effect of Batch Normalization on Gradient Descent', 'The Effect of Network Width on Stochastic Gradient Descent and Generalization: an Empirical Study', 'Gradient Descent Finds Global Minima of Deep Neural Networks', 'Compressing Gradient Optimizers via Count-Sketches', 'Conditional Gradient Methods via Stochastic Path-Integrated Differential Estimator', 'PA-GD: On the Convergence of Perturbed Alternating Gradient Descent to Second-Order Stationary Points for Structured Nonconvex Optimization', 'Error Feedback Fixes SignSGD and other Gradient Compression Schemes', 'A Composite Randomized Incremental Gradient Method', 'Game Theoretic Optimization via Gradient-based Nikaido-Isoda Function', 'Blended Conditonal Gradients', 'A Conditional-Gradient-Based Augmented Lagrangian Framework', 'Fast and Simple Natural-Gradient Variational Inference with Mixture of Exponential-family Approximations', 'Rao-Blackwellized Stochastic Gradients for Discrete Distributions', 'A Wrapped Normal Distribution on Hyperbolic Space for Gradient-Based Learning', 'A Baseline for Any Order Gradient Estimation in Stochastic Computation Graphs', 'Deep Generative Learning via Variational Gradient Flow', 'The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Sharp Minima and Regularization Effects', 'Simple Stochastic Gradient Methods for Non-Smooth Non-Convex Regularized Optimization', 'Efficient Dictionary Learning with Gradient Descent', 'Riemannian adaptive stochastic gradient algorithms on matrix manifolds', 'Hessian Aided Policy Gradient', 'Zeno: Distributed Stochastic Gradient Descent with Suspicion-based Fault-tolerance', 'Stochastic Gradient Push for Distributed Deep Learning', 'Learning a Compressed Sensing Measurement Matrix via Gradient Unrolling', 'Better generalization with less data using robust gradient descent', 'Nonlinear Stein Variational Gradient Descent for Learning Diversified Mixture Models', 'The Variational Predictive Natural Gradient', 'Quantile Stein Variational Gradient Descent for Batch Bayesian Optimization', 'Provable Guarantees for Gradient-Based Meta-Learning', 'Learning-to-Learn Stochastic Gradient Descent with Biased Regularization', 'A Tail-Index Analysis of Stochastic Gradient Noise in Deep Neural Networks', 'ARSM: Augment-REINFORCE-Swap-Merge Estimator for Gradient Backpropagation Through Categorical Variables', 'Neuron birth-death dynamics accelerates gradient descent and converges asymptotically', 'Overparameterized Nonlinear Learning: Gradient Descent Takes the Shortest Path?', 'Escaping Saddle Points with Adaptive Gradient Methods', '$\\texttt{DoubleSqueeze}$: Parallel Stochastic Gradient Descent with Double-pass Error-Compensated Compression', 'Model Function Based Conditional Gradient Method with Armijo-like Line Search', 'Guided evolutionary strategies: augmenting random search with surrogate gradients', 'Semi-Cyclic Stochastic Gradient Descent'], 'data': ['Data Shapley: Equitable Valuation of Data for Machine Learning', 'Feature Grouping as a Stochastic Regularizer for High-Dimensional Structured Data', 'Improving Model Selection by Employing the Test Data', 'Topological Data Analysis of Decision Boundaries with Application to Model Selection', 'Optimal Transport for structured data with application on graphs', 'Formal Privacy for Functional Data with Gaussian Perturbations', 'Natural Analysts in Adaptive Data Analysis', 'Training Well-Generalizing Classifiers for Fairness Metrics and Other Data-Dependent Constraints', 'LR-GLM: High-Dimensional Bayesian Inference Using Low-Rank Data Approximations', 'A Kernel Theory of Modern Data Augmentation', 'Bayesian leave-one-out cross-validation for large data', 'Active Learning for Decision-Making from Imbalanced Observational Data', 'Graph Neural Network for Music Score Data and Modeling Expressive Piano Performance', 'Variational Inference for sparse network reconstruction from count data', 'Sparse Multi-Channel Variational Autoencoder for the Joint Analysis of Heterogeneous Data', 'Learning Models from Data with Measurement Error: Tackling Underreporting', 'Invariant-Equivariant Representation Learning for Multi-Class Data', 'Data Poisoning Attacks on Stochastic Bandits', 'Learning with Bad Training Data via Iterative Trimmed Loss Minimization', 'Does Data Augmentation Lead to Positive Margin?', 'Data Poisoning Attacks in Multi-Party Learning', 'Compressed Factorization: Fast and Accurate Low-Rank Factorization of Compressively-Sensed Data', 'Better generalization with less data using robust gradient descent', 'On the statistical rate of nonlinear recovery in generative models with heavy-tailed data', 'Phase transition in PCA with missing data: Reduced signal-to-noise ratio, not sample size!', 'Co-manifold learning with missing data', 'Learning Discrete and Continuous Factors of Data via Alternating Disentanglement', 'MIWAE: Deep Generative Modelling and Imputation of Incomplete Data Sets', 'Geometric Scattering for Graph Data Analysis', 'CoT: Cooperative Training for Generative Modeling of Discrete Data', 'Functional Transparency for Structured Data: a Game-Theoretic Approach', 'Exploring interpretable LSTM neural networks over multi-variable data', 'Learning and Data Selection in Big Datasets', 'The information-theoretic value of unlabeled data in semi-supervised learning', 'Classification from Positive, Unlabeled and Biased Negative Data', 'Fair k-Center Clustering for Data Summarization', 'Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets', 'Doubly Robust Joint Learning for Recommendation on Data Missing Not at Random', "Linear-Complexity Data-Parallel Earth Mover's Distance Approximations", 'Fast Algorithm for Generalized Multinomial Models with Ranking Data', 'Discovering Context Effects from Raw Choice Data'], 'graph': ['GMNN: Graph Markov Neural Networks', 'Self-Attention Graph Pooling', 'Graph Matching Networks for Learning the Similarity of Graph Structured Objects', 'Graph U-Nets', 'TibGM: A Transferable and Information-Based Graphical Model Approach for Reinforcement Learning', 'Adversarial Attacks on Node Embeddings via Graph Poisoning', 'Lexicographic and Depth-Sensitive Margins in Homogeneous and Non-Homogeneous Deep Models', 'Optimal Transport for structured data with application on graphs', 'Improved Dynamic Graph Learning through Fault-Tolerant Sparsification', 'GEOMetrics: Exploiting Geometric Structure for Graph-Encoded Objects', 'Graphical-model based estimation and inference for differential privacy', 'A Persistent Weisfeiler--Lehman Procedure for Graph Classification', 'Bayesian Joint Spike-and-Slab Graphical Lasso', 'Molecular Hypergraph Grammar with Its Application to Molecular Optimization', 'Graph Neural Network for Music Score Data and Modeling Expressive Piano Performance', 'Circuit-GNN: Graph Neural Networks for Distributed Circuit Design', 'Fast Incremental von Neumann Graph Entropy Computation: Theory, Algorithm, and Applications', 'Simplifying Graph Convolutional Networks', 'Graph Element Networks: adaptive, structured computation and memory', 'A Baseline for Any Order Gradient Estimation in Stochastic Computation Graphs', 'Tensor Variable Elimination for Plated Factor Graphs', 'Discriminative Regularization for Latent Variable Models with Applications to Electrocardiography', 'Learning to Route in Similarity Graphs', 'MixHop: Higher-Order Graph Convolutional Architectures via Sparsified Neighborhood Mixing', 'Position-aware Graph Neural Networks', 'Relational Pooling for Graph Representations', 'Disentangled Graph Convolutional Networks', 'Open Vocabulary Learning on Source Code with a Graph-Structured Cache', 'Learning Discrete Structures for Graph Neural Networks', 'Compositional Fairness Constraints for Graph Embeddings', 'Stochastic Blockmodels meet Graph Neural Networks', 'Graph Convolutional Gaussian Processes', 'Active Learning with Disagreement Graphs', 'Graphite: Iterative Generative Modeling of Graphs', 'Geometric Scattering for Graph Data Analysis', 'Distributed, Egocentric Representations of Graphs for Detecting Critical Structures', 'Hyperbolic Disk Embeddings for Directed Acyclic Graphs', 'Learning to Exploit Long-term Relational Dependencies in Knowledge Graphs', 'Stochastic Iterative Hard Thresholding for Graph-structured Sparsity Optimization', 'Online Learning with Sleeping Experts and Feedback Graphs', 'Gromov-Wasserstein Learning for Graph Matching and Node Embedding', 'Spectral Clustering of Signed Graphs via Matrix Power Means', 'Robust Estimation of Tree Structured Gaussian Graphical Models', 'Partially Linear Additive Gaussian Graphical Models', 'DAG-GNN: DAG Structure Learning with Graph Neural Networks', 'Random Walks on Hypergraphs with Edge-Dependent Vertex Weights', 'Graph Resistance and Learning from Pairwise Comparisons'], 'inference': ['Optimal Continuous DR-Submodular Maximization and Applications to Provable Mean Field Inference', 'Inference and Sampling of $K_{33}$-free Ising Models', 'Graphical-model based estimation and inference for differential privacy', 'White-box vs Black-box: Bayes Optimal Strategies for Membership Inference', 'Locally Private Bayesian Inference for Count Models', 'Low Latency Privacy Preserving Inference', 'A Contrastive Divergence for Combining Variational Inference and MCMC', 'Calibrated Approximate Bayesian Inference', 'Moment-Based Variational Inference for Markov Jump Processes', 'LR-GLM: High-Dimensional Bayesian Inference Using Low-Rank Data Approximations', 'Fast and Simple Natural-Gradient Variational Inference with Mixture of Exponential-family Approximations', 'kernelPSI: a Post-Selection Inference Framework for Nonlinear Variable Selection', 'Dirichlet Simplex Nest and Geometric Inference', 'Neurally-Guided Structure Inference', 'Automatic Posterior Transformation for Likelihood-Free Inference', 'Validating Causal Inference Models via Influence Functions', 'Recurrent Kalman Networks: Factorized Inference in High-Dimensional Deep Feature Spaces', 'Variational Inference for sparse network reconstruction from count data', 'Probability Functional Descent: A Unifying Perspective on GANs, Variational Inference, and Reinforcement Learning', 'Predicate Exchange: Inference with Declarative Knowledge', 'Adversarially Learned Representations for Information Obfuscation and Inference', 'Band-limited Training and Inference for Convolutional Neural Networks', 'Orthogonal Random Forest for Causal Inference', 'End-to-End Probabilistic Inference for Nonstationary Audio Analysis', 'Deep Gaussian Processes with Importance-Weighted Variational Inference', 'Scalable Training of Inference Networks for Gaussian-Process Models', 'Understanding and Accelerating Particle-Based Variational Inference', 'An Instability in Variational Inference for Topic Models', 'Efficient Amortised Bayesian Inference for Hierarchical and Nonlinear Dynamical Systems', 'Fast and Flexible Inference of Joint Distributions from their Marginals', 'Robust Inference via Generative Classifiers for Handling Noisy Labels', 'Multi-Object Representation Learning with Iterative Variational Inference', 'Communication-Constrained Inference and the Role of Shared Randomness', 'Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets', 'Spectral Approximate Inference', 'On the Feasibility of Learning, Rather than Assuming, Human Biases for Reward Inference'], 'stochastic': ['Stochastic Deep Networks', 'Adaptive Stochastic Natural Gradient Method for One-Shot Neural Architecture Search', 'The Effect of Network Width on Stochastic Gradient Descent and Generalization: an Empirical Study', 'SWALP : Stochastic Weight Averaging in Low Precision Training', 'Conditional Gradient Methods via Stochastic Path-Integrated Differential Estimator', 'Faster Stochastic Alternating Direction Method of Multipliers for Nonconvex Optimization', 'Feature Grouping as a Stochastic Regularizer for High-Dimensional Structured Data', 'An Optimal Private Stochastic-MAB Algorithm based on Optimal Private Stopping Rule', 'Decentralized Stochastic Optimization and Gossip Algorithms with Compressed Communication', 'Rao-Blackwellized Stochastic Gradients for Discrete Distributions', 'A Baseline for Any Order Gradient Estimation in Stochastic Computation Graphs', 'The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Sharp Minima and Regularization Effects', 'On the Computation and Communication Complexity of Parallel SGD with Dynamic Batch Sizes for Stochastic Non-Convex Optimization', 'Simple Stochastic Gradient Methods for Non-Smooth Non-Convex Regularized Optimization', 'Surrogate Losses for Online Learning of Stepsizes in Stochastic Non-Convex Optimization', 'Riemannian adaptive stochastic gradient algorithms on matrix manifolds', 'Stochastic Optimization for DC Functions and Non-smooth Non-convex Regularizers with Non-asymptotic Convergence', 'Beating Stochastic and Adversarial Semi-bandits Optimally and Simultaneously', 'Sever: A Robust Meta-Algorithm for Stochastic Optimization', 'Data Poisoning Attacks on Stochastic Bandits', 'Zeno: Distributed Stochastic Gradient Descent with Suspicion-based Fault-tolerance', 'Stochastic Blockmodels meet Graph Neural Networks', 'Stochastic Gradient Push for Distributed Deep Learning', 'Accelerated Linear Convergence of Stochastic Momentum Methods in Wasserstein Distances', 'Estimate Sequences for Variance-Reduced Stochastic Composite Optimization', 'Learning interpretable continuous-time models of latent stochastic dynamical systems', 'Learning-to-Learn Stochastic Gradient Descent with Biased Regularization', 'Stochastic Beams and Where To Find Them: The Gumbel-Top-k Trick for Sampling Sequences Without Replacement', 'PAC Identification of Many Good Arms in Stochastic Multi-Armed Bandits', 'A Tail-Index Analysis of Stochastic Gradient Noise in Deep Neural Networks', 'Stochastic Iterative Hard Thresholding for Graph-structured Sparsity Optimization', '$\\texttt{DoubleSqueeze}$: Parallel Stochastic Gradient Descent with Double-pass Error-Compensated Compression', 'Semi-Cyclic Stochastic Gradient Descent'], 'algorithm': ['Diagnosing Bottlenecks in Deep Q-learning Algorithms', 'Composable Core-sets for Determinant Maximization: A Simple Near-Optimal Algorithm', 'Improved Zeroth-Order Variance Reduced Algorithms and Analysis for Nonconvex Optimization', 'Multiplicative Weights Updates as a distributed constrained optimization algorithm: Convergence to second-order stationary points almost always', 'An Optimal Private Stochastic-MAB Algorithm based on Optimal Private Stopping Rule', 'Sublinear Space Private Algorithms Under the Sliding Window Model', 'On Efficient Optimal Transport: An Analysis of Greedy and Accelerated Mirror Descent Algorithms', 'Passed & Spurious: Descent Algorithms and Local Minima in Spiked Matrix-Tensor Models', 'Decentralized Stochastic Optimization and Gossip Algorithms with Compressed Communication', 'CapsAndRuns: An Improved Method for Approximately Optimal Algorithm Configuration', 'Fast Incremental von Neumann Graph Entropy Computation: Theory, Algorithm, and Applications', 'Riemannian adaptive stochastic gradient algorithms on matrix manifolds', 'Optimal Algorithms for Lipschitz Bandits with Heavy-tailed Rewards', 'Sever: A Robust Meta-Algorithm for Stochastic Optimization', 'Improved Parallel Algorithms for Density-Based Network Clustering', 'Detecting Overlapping and Correlated Communities without Pure Nodes: Identifiability and Algorithm', 'First-Order Algorithms Converge Faster than $O(1/k)$ on Convex Problems', 'A Multitask Multiple Kernel Learning Algorithm for Survival Analysis with Application to Cancer Biology', 'Learning Fast Algorithms for Linear Transforms Using Butterfly Factorizations', 'Projections for Approximate Policy Iteration Algorithms', 'Iterative Linearized Control: Stable Algorithms and Complexity Guarantees', 'Contextual Multi-armed Bandit Algorithm for Semiparametric Reward Model', 'Explaining Deep Neural Networks with a Polynomial Time Algorithm for Shapley Value Approximation', 'Sequential Facility Location: Approximate Submodularity and Greedy Algorithm', 'Greedy Orthogonal Pivoting Algorithm for Non-Negative Matrix Factorization', 'Fair Regression: Quantitative Definitions and Reduction-Based Algorithms', 'On the Long-term Impact of Algorithmic Decision Policies: Effort Unfairness and Feature Segregation through Social Learning', 'Submodular Maximization beyond Non-negativity: Guarantees, Fast Algorithms, and Applications', 'Online Algorithms for Rent-Or-Buy with Expert Advice', 'Faster Algorithms for Binary Matrix Factorization', 'Adaptive Scale-Invariant Online Algorithms for Learning Linear Models', 'Bandit Multiclass Linear Classification: Efficient Algorithms for the Separable Case', 'Sublinear quantum algorithms for training linear and kernel-based classifiers', 'Bridging Theory and Algorithm for Domain Adaptation', 'A Better k-means++ Algorithm via Local Search', 'Breaking the gridlock in Mixture-of-Experts: Consistent and Efficient Algorithms', 'Fast Algorithm for Generalized Multinomial Models with Ranking Data'], 'efficient': ['Efficient optimization of loops and limits with randomized telescoping sums', 'Distributional Reinforcement Learning for Efficient Exploration', 'EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks', 'On Efficient Optimal Transport: An Analysis of Greedy and Accelerated Mirror Descent Algorithms', 'Optimality Implies Kernel Sum Classifiers are Statistically Efficient', 'Provably efficient RL with Rich Observations via Latent State Decoding', 'EDDI: Efficient Dynamic Discovery of High-Value Information with Partial VAE', 'LegoNet: Efficient Convolutional Neural Networks with Lego Filters', 'Dimension-Wise Importance Sampling Weight Clipping for Sample-Efficient Reinforcement Learning', 'Taming MAML: Efficient unbiased meta-reinforcement learning', 'Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables', 'Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization', 'More Efficient Off-Policy Evaluation through Regularized Targeted Learning', 'Efficient Dictionary Learning with Gradient Descent', 'Provably Efficient Imitation Learning from Observation Alone', 'Provably Efficient Maximum Entropy Exploration', 'Population Based Augmentation: Efficient Learning of Augmentation Policy Schedules', 'On the Linear Speedup Analysis of Communication Efficient Momentum SGD for Distributed Non-Convex Optimization', 'Efficient learning of smooth probability functions from Bernoulli tests with guarantees', 'Efficient Amortised Bayesian Inference for Hierarchical and Nonlinear Dynamical Systems', 'Parameter efficient training of deep convolutional neural networks by dynamic sparse reparameterization', 'BERT and PALs: Projected Attention Layers for Efficient Adaptation in Multi-Task Learning', 'Fast Direct Search in an Optimally Compressed Continuous Target Space for Efficient Multi-Label Active Learning', 'On Scalable and Efficient Computation of Large Scale Optimal Transport', 'LatentGNN: Learning Efficient Non-local Relations for Visual Recognition', 'Efficient Training of BERT by Progressively Stacking', 'Exploiting structure of uncertainty for efficient matroid semi-bandits', 'Parameter-Efficient Transfer Learning for NLP', 'Efficient On-Device Models using Neural Projections', 'Bandit Multiclass Linear Classification: Efficient Algorithms for the Separable Case', 'Learning Linear-Quadratic Regulators Efficiently with only $\\sqrt{T}$ Regret', 'Efficient Full-Matrix Adaptive Regularization', 'Breaking the gridlock in Mixture-of-Experts: Consistent and Efficient Algorithms', 'Efficient Nonconvex Regularized Tensor Completion with Structure-aware Proximal Iterations'], 'generative': ['Self-Attention Generative Adversarial Networks', 'Revisiting precision recall definition for generative modeling', 'Wasserstein of Wasserstein Loss for Learning Generative Models', 'Flat Metric Minimization with Applications in Generative Modeling', 'Non-Parametric Priors For Generative Adversarial Networks', 'Lipschitz Generative Adversarial Nets', 'HexaGAN: Generative Adversarial Nets for Real World Classification', 'Generative Adversarial User Model for Reinforcement Learning Based Recommendation System', 'HyperGAN: A Generative Model for Diverse, Performant Neural Networks', 'FloWaveNet : A Generative Flow for Raw Audio', 'Are Generative Classifiers More Robust to Adversarial Attacks?', 'A Gradual, Semi-Discrete Approach to Generative Network Training via Explicit Wasserstein Minimization', 'Emerging Convolutions for Generative Normalizing Flows', 'Finding Mixed Nash Equilibria of Generative Adversarial Networks', 'Deep Generative Learning via Variational Gradient Flow', 'Flow++: Improving Flow-Based Generative Models with Variational Dequantization and Architecture Design', 'Learning Neurosymbolic Generative Models via Program Synthesis', 'Generative Modeling of Infinite Occluded Objects for Compositional Scene Representation', 'Learning Generative Models across Incomparable Spaces', 'On the statistical rate of nonlinear recovery in generative models with heavy-tailed data', 'Bayesian Generative Active Deep Learning', 'Multi-objective training of Generative Adversarial Networks with multiple discriminators', 'Graphite: Iterative Generative Modeling of Graphs', 'MIWAE: Deep Generative Modelling and Imputation of Incomplete Data Sets', 'Robust Inference via Generative Classifiers for Handling Noisy Labels', 'CoT: Cooperative Training for Generative Modeling of Discrete Data', 'Sliced-Wasserstein Flows: Nonparametric Generative Modeling via Optimal Transport and Diffusions', 'Metropolis-Hastings Generative Adversarial Networks', 'MetricGAN: Generative Adversarial Networks based Black-box Metric Scores Optimization for Speech Enhancement'], 'bayesian': ['BayesNAS: A Bayesian Approach for Neural Architecture Search', 'Bayesian Counterfactual Risk Minimization', 'Locally Private Bayesian Inference for Count Models', 'Calibrated Approximate Bayesian Inference', 'LR-GLM: High-Dimensional Bayesian Inference Using Low-Rank Data Approximations', 'Bayesian Deconditional Kernel Mean Embeddings', 'Bayesian leave-one-out cross-validation for large data', 'Bayesian Joint Spike-and-Slab Graphical Lasso', 'Rotation Invariant Householder Parameterization for Bayesian PCA', 'A Framework for Bayesian Optimization in Embedded Subspaces', 'Bayesian Nonparametric Federated Learning of Neural Networks', 'Conditional Independence in Testing Bayesian Networks', 'Asynchronous Batch Bayesian Optimisation with Improved Local Penalisation', 'Automated Model Selection with Bayesian Quadrature', 'DP-GP-LVM: A Bayesian Non-Parametric Model for Learning Multivariate Dependency Structures', 'Variational Russian Roulette for Deep Bayesian Nonparametrics', 'Incorporating Grouping Information into Bayesian Decision Tree Ensembles', 'Bayesian Optimization Meets Bayesian Optimal Stopping', 'Bayesian Optimization of Composite Functions', 'The Kernel Interaction Trick: Fast Bayesian Discovery of Pairwise Interactions in High Dimensions', 'Quantile Stein Variational Gradient Descent for Batch Bayesian Optimization', 'Efficient Amortised Bayesian Inference for Hierarchical and Nonlinear Dynamical Systems', 'Bayesian Generative Active Deep Learning', 'Bayesian Action Decoder for Deep Multi-Agent Reinforcement Learning', 'Nonparametric Bayesian Deep Networks with Local Competition', 'Partially Exchangeable Networks and Architectures for Learning Summary Statistics in Approximate Bayesian Computation', 'Understanding Priors in Bayesian Neural Networks at the Unit Level', 'Adaptive and Safe Bayesian Optimization in High Dimensions via One-Dimensional Subspaces', 'Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets'], 'variational': ['A Contrastive Divergence for Combining Variational Inference and MCMC', 'Moment-Based Variational Inference for Markov Jump Processes', 'Fast and Simple Natural-Gradient Variational Inference with Mixture of Exponential-family Approximations', 'Correlated Variational Auto-Encoders', 'Switching Linear Dynamics for Variational Bayes Filtering', 'Variational Inference for sparse network reconstruction from count data', 'Rates of Convergence for Sparse Variational Gaussian Process Regression', 'Disentangling Disentanglement in Variational Autoencoders', 'Variational Annealing of GANs: A Langevin Perspective', 'Probability Functional Descent: A Unifying Perspective on GANs, Variational Inference, and Reinforcement Learning', 'Hierarchical Decompositional Mixtures of Variational Autoencoders', 'Sparse Multi-Channel Variational Autoencoder for the Joint Analysis of Heterogeneous Data', 'Deep Generative Learning via Variational Gradient Flow', 'Flow++: Improving Flow-Based Generative Models with Variational Dequantization and Architecture Design', 'Deep Gaussian Processes with Importance-Weighted Variational Inference', 'Variational Russian Roulette for Deep Bayesian Nonparametrics', 'Variational Implicit Processes', 'Nonlinear Stein Variational Gradient Descent for Learning Diversified Mixture Models', 'Understanding and Accelerating Particle-Based Variational Inference', 'The Variational Predictive Natural Gradient', 'An Instability in Variational Inference for Topic Models', 'Quantile Stein Variational Gradient Descent for Batch Bayesian Optimization', 'Variational Laplace Autoencoders', 'Multi-Object Representation Learning with Iterative Variational Inference', 'Good Initializations of Variational Bayes for Deep Models', 'On Variational Bounds of Mutual Information', 'CHiVE: Varying Prosody in Speech Synthesis with a Linguistically Driven Dynamic Hierarchical Conditional Variational Network'], 'representation': ['Manifold Mixup: Better Representations by Interpolating Hidden States', 'On Learning Invariant Representations for Domain Adaptation', 'DeepMDP: Learning Continuous Latent Space Models for Representation Learning', 'Learning Action Representations for Reinforcement Learning', 'Co-Representation Network for Generalized Zero-Shot Learning', 'Geometry Aware Convolutional Filters for Omnidirectional Images Representation', 'Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations', 'Differentiable Dynamic Normalization for Learning Deep Representation', 'SOLAR: Deep Structured Representations for Model-Based Reinforcement Learning', 'Adversarially Learned Representations for Information Obfuscation and Inference', 'Connectivity-Optimized Representation Learning via Persistent Homology', 'Invariant-Equivariant Representation Learning for Multi-Class Data', 'Generative Modeling of Infinite Occluded Objects for Compositional Scene Representation', 'Relational Pooling for Graph Representations', 'Domain Agnostic Learning with Disentangled Representations', 'State-Reification Networks: Improving Generalization by Modeling the Distribution of Hidden Representations', 'LIT: Learned Intermediate Representation Training for Model Compression', 'Analyzing and Improving Representations with the Soft Nearest Neighbor Loss', 'Similarity of Neural Network Representations Revisited', 'Distributed, Egocentric Representations of Graphs for Detecting Critical Structures', 'Multi-Object Representation Learning with Iterative Variational Inference', 'Robustly Disentangled Causal Mechanisms: Validating Deep Representations for Interventional Robustness', 'Lorentzian Distance Learning for Hyperbolic Representations', 'Flexibly Fair Representation Learning by Disentanglement', 'A Theoretical Analysis of Contrastive Unsupervised Representation Learning'], 'optimal': ['Composable Core-sets for Determinant Maximization: A Simple Near-Optimal Algorithm', 'Memory-Optimal Direct Convolutions for Maximizing Classification Accuracy in Embedded Applications', 'Optimal Continuous DR-Submodular Maximization and Applications to Provable Mean Field Inference', 'Optimal Transport for structured data with application on graphs', 'Learning Optimal Linear Regularizers', 'Optimal Auctions through Deep Learning', 'White-box vs Black-box: Bayes Optimal Strategies for Membership Inference', 'An Optimal Private Stochastic-MAB Algorithm based on Optimal Private Stopping Rule', 'On Efficient Optimal Transport: An Analysis of Greedy and Accelerated Mirror Descent Algorithms', 'Characterization of Convex Objective Functions and Optimal Expected Convergence Rates for SGD', 'Safe Grid Search with Optimal Complexity', 'CapsAndRuns: An Improved Method for Approximately Optimal Algorithm Configuration', 'Optimality Implies Kernel Sum Classifiers are Statistically Efficient', 'Optimal Minimal Margin Maximization with Boosting', 'Extrapolating Beyond Suboptimal Demonstrations via Inverse Reinforcement Learning from Observations', 'Alternating Minimizations Converge to Second-Order Optimal Solutions', 'Sample-Optimal Parametric Q-Learning Using Linearly Additive Features', 'Optimal Algorithms for Lipschitz Bandits with Heavy-tailed Rewards', 'Beating Stochastic and Adversarial Semi-bandits Optimally and Simultaneously', 'Near optimal finite time identification of arbitrary linear dynamical systems', 'Optimal Mini-Batch and Step Sizes for SAGA', 'Bayesian Optimization Meets Bayesian Optimal Stopping', 'Fast Direct Search in an Optimally Compressed Continuous Target Space for Efficient Multi-Label Active Learning', 'On Scalable and Efficient Computation of Large Scale Optimal Transport', 'Learning Optimal Fair Policies', 'Obtaining Fairness using Optimal Transport Theory', 'Non-monotone Submodular Maximization with Nearly Optimal Adaptivity and Query Complexity', 'Optimal Kronecker-Sum Approximation of Real Time Recurrent Learning', 'Pareto Optimal Streaming Unsupervised Classification', 'Sliced-Wasserstein Flows: Nonparametric Generative Modeling via Optimal Transport and Diffusions'], 'training': ['Training Neural Networks with Local Error Signals', 'SWALP : Stochastic Weight Averaging in Low Precision Training', 'Using Pre-Training Can Improve Model Robustness and Uncertainty', 'Improving Neural Network Quantization without Retraining using Outlier Channel Splitting', 'DL2: Training and Querying Neural Networks with Logic', 'On The Power of Curriculum Learning in Training Deep Networks', 'Training Well-Generalizing Classifiers for Fairness Metrics and Other Data-Dependent Constraints', 'A Gradual, Semi-Discrete Approach to Generative Network Training via Explicit Wasserstein Minimization', 'Training CNNs with Selective Allocation of Channels', 'Toward Understanding the Importance of Noise in Training Neural Networks', 'On the Impact of the Activation function on Deep Neural Networks Training', 'Band-limited Training and Inference for Convolutional Neural Networks', 'On the Convergence and Robustness of Adversarial Training', 'Learning with Bad Training Data via Iterative Trimmed Loss Minimization', 'Monge blunts Bayes: Hardness Results for Adversarial Training', 'Scalable Training of Inference Networks for Gaussian-Process Models', 'Parameter efficient training of deep convolutional neural networks by dynamic sparse reparameterization', 'Transferable Adversarial Training: A General Approach to Adapting Deep Classifiers', 'Multi-objective training of Generative Adversarial Networks with multiple discriminators', 'Understanding and correcting pathologies in the training of learned optimizers', 'LIT: Learned Intermediate Representation Training for Model Compression', 'CoT: Cooperative Training for Generative Modeling of Discrete Data', 'Efficient Training of BERT by Progressively Stacking', 'Improving Neural Language Modeling via Adversarial Training', 'MASS: Masked Sequence to Sequence Pre-training for Language Generation', 'Repairing without Retraining: Avoiding Disparate Impact with Counterfactual Distributions', 'Sublinear quantum algorithms for training linear and kernel-based classifiers'], 'analysis': ['ELF OpenGo: an analysis and open reimplementation of AlphaZero', 'A Quantitative Analysis of the Effect of Batch Normalization on Gradient Descent', 'Fine-Grained Analysis of Optimization and Generalization for Overparameterized Two-Layer Neural Networks', 'Improved Zeroth-Order Variance Reduced Algorithms and Analysis for Nonconvex Optimization', 'Topological Data Analysis of Decision Boundaries with Application to Model Selection', 'On Efficient Optimal Transport: An Analysis of Greedy and Accelerated Mirror Descent Algorithms', 'Nearest Neighbor and Kernel Survival Analysis: Nonasymptotic Error Bounds and Strong Consistency Rates', 'SGD: General Analysis and Improved Rates', 'Natural Analysts in Adaptive Data Analysis', 'Towards a Unified Analysis of Random Fourier Features', 'Large-Scale Sparse Kernel Canonical Correlation Analysis', 'Sparse Multi-Channel Variational Autoencoder for the Joint Analysis of Heterogeneous Data', 'Sensitivity Analysis of Linear Structural Causal Models', 'On the Linear Speedup Analysis of Communication Efficient Momentum SGD for Distributed Non-Convex Optimization', 'Trimming the $\\ell_1$ Regularizer: Statistical Analysis, Optimization, and Applications to Deep Learning', 'End-to-End Probabilistic Inference for Nonstationary Audio Analysis', 'A Multitask Multiple Kernel Learning Algorithm for Survival Analysis with Application to Cancer Biology', 'Geometric Scattering for Graph Data Analysis', 'Empirical Analysis of Beam Search Performance Degradation in Neural Sequence Models', 'Finite-Time Analysis of Distributed TD(0) with Linear Function Approximation on Multi-Agent Reinforcement Learning', 'A Tail-Index Analysis of Stochastic Gradient Noise in Deep Neural Networks', 'Online Adaptive Principal Component Analysis and Its extensions', 'A Theoretical Analysis of Contrastive Unsupervised Representation Learning', 'Non-Asymptotic Analysis of Fractional Langevin Monte Carlo for Non-Convex Optimization'], 'adaptive': ['TapNet: Neural Network Augmented with Task-Adaptive Projection for Few-Shot Learning', 'Adaptive Stochastic Natural Gradient Method for One-Shot Neural Architecture Search', 'Uniform Convergence Rate of the Kernel Density Estimator Adaptive to Intrinsic Volume Dimension', 'Natural Analysts in Adaptive Data Analysis', 'Graph Element Networks: adaptive, structured computation and memory', 'Addressing the Loss-Metric Mismatch with Adaptive Loss Alignment', 'Adaptive Neural Trees', 'Riemannian adaptive stochastic gradient algorithms on matrix manifolds', 'Beyond Adaptive Submodularity: Approximation Guarantees of Greedy Policy with Adaptive Submodularity Ratio', 'Submodular Streaming in All Its Glory: Tight Approximation, Minimum Memory and Low Adaptive Complexity', 'Conditioning by adaptive sampling for robust design', 'Myopic Posterior Sampling for Adaptive Goal Oriented Design of Experiments', 'Escaping Saddle Points with Adaptive Gradient Methods', 'Adaptive and Safe Bayesian Optimization in High Dimensions via One-Dimensional Subspaces', 'Adaptive Scale-Invariant Online Algorithms for Learning Linear Models', 'Adaptive Regret of Convex and Smooth Functions', 'Online Adaptive Principal Component Analysis and Its extensions', 'Adaptive Sensor Placement for Continuous Spaces', 'Scale-free adaptive planning for deterministic dynamics & discounted rewards', 'Adaptive Monte Carlo Multiple Testing via Multi-Armed Bandits', 'Adaptive Antithetic Sampling for Variance Reduction', 'Efficient Full-Matrix Adaptive Regularization', 'CAB: Continuous Adaptive Blending for Policy Evaluation and Learning'], 'function': ['Separable value functions across time-scales', 'Tighter Problem-Dependent Regret Bounds in Reinforcement Learning without Domain Knowledge using Value Function Bounds', 'The Value Function Polytope in Reinforcement Learning', 'Shape Constraints for Set Functions', 'Game Theoretic Optimization via Gradient-based Nikaido-Isoda Function', 'Formal Privacy for Functional Data with Gaussian Perturbations', 'Benefits and Pitfalls of the Exponential Mechanism with Applications to Hilbert Spaces and Functional PCA', 'PAC Learnability of Node Functions in Networked Dynamical Systems', 'Characterization of Convex Objective Functions and Optimal Expected Convergence Rates for SGD', 'Validating Causal Inference Models via Influence Functions', 'Sorting Out Lipschitz Function Approximation', 'Probability Functional Descent: A Unifying Perspective on GANs, Variational Inference, and Reinforcement Learning', 'On the Impact of the Activation function on Deep Neural Networks Training', 'Stochastic Optimization for DC Functions and Non-smooth Non-convex Regularizers with Non-asymptotic Convergence', 'SGD without Replacement: Sharper Rates for General Smooth Convex Functions', 'Random Function Priors for Correlation Modeling', 'Efficient learning of smooth probability functions from Bernoulli tests with guarantees', 'Bayesian Optimization of Composite Functions', 'Composing Value Functions in Reinforcement Learning', 'Finite-Time Analysis of Distributed TD(0) with Linear Function Approximation on Multi-Agent Reinforcement Learning', 'Functional Transparency for Structured Data: a Game-Theoretic Approach', 'On the Limitations of Representing Functions on Sets', 'Model Function Based Conditional Gradient Method with Armijo-like Line Search', 'Differentially Private Empirical Risk Minimization with Non-convex Loss Functions', 'Adaptive Regret of Convex and Smooth Functions'], 'online': ['Online Meta-Learning', 'Nonlinear Distributional Gradient Temporal-Difference Learning', 'Beyond Backprop: Online Alternating Minimization with Auxiliary Variables', 'Online learning with kernel losses', 'kernelPSI: a Post-Selection Inference Framework for Nonlinear Variable Selection', 'Surrogate Losses for Online Learning of Stepsizes in Stochastic Non-Convex Optimization', 'Correlated bandits or: How to minimize mean-squared error online', 'Online Learning to Rank with Features', 'On the statistical rate of nonlinear recovery in generative models with heavy-tailed data', 'Nonlinear Stein Variational Gradient Descent for Learning Diversified Mixture Models', 'Efficient Amortised Bayesian Inference for Hierarchical and Nonlinear Dynamical Systems', 'Overparameterized Nonlinear Learning: Gradient Descent Takes the Shortest Path?', 'Toward Controlling Discrimination in Online Ad Auctions', 'Online Algorithms for Rent-Or-Buy with Expert Advice', 'Matrix-Free Preconditioning in Online Learning', 'Online Convex Optimization in Adversarial Markov Decision Processes', 'Online Learning with Sleeping Experts and Feedback Graphs', 'Incremental Randomized Sketching for Online Kernel Learning', 'Adaptive Scale-Invariant Online Algorithms for Learning Linear Models', 'Online Control with Adversarial Disturbances', 'Adversarial Online Learning with noise', 'Online Variance Reduction with Mixtures', 'Online Adaptive Principal Component Analysis and Its extensions', 'Anytime Online-to-Batch, Optimism and Acceleration', 'Cautious Regret Minimization: Online Optimization with Long-Term Budget Constraints'], 'robust': ['Making Deep Q-learning methods robust to time discretization', 'Fingerprint Policy Optimisation for Robust Reinforcement Learning', 'Improving Adversarial Robustness via Promoting Ensemble Diversity', 'POPQORN: Quantifying Robustness of Recurrent Neural Networks', 'Using Pre-Training Can Improve Model Robustness and Uncertainty', 'Generalized No Free Lunch Theorem for Adversarial Robustness', 'PROVEN: Verifying Robustness of Neural Networks with a Probabilistic Approach', 'Robust Decision Trees Against Adversarial Examples', 'Fast Rates for a kNN Classifier Robust to Unknown Asymmetric Label Noise', 'Rademacher Complexity for Adversarially Robust Generalization', 'Subspace Robust Wasserstein Distances', 'Robust Influence Maximization for Hyperparametric Models', 'Are Generative Classifiers More Robust to Adversarial Attacks?', 'Theoretically Principled Trade-off between Robustness and Accuracy', 'ME-Net: Towards Effective Adversarial Robustness with Matrix Estimation', 'Certified Adversarial Robustness via Randomized Smoothing', 'Imperceptible, Robust, and Targeted Adversarial Examples for Automatic Speech Recognition', 'Action Robust Reinforcement Learning and Applications in Continuous Control', 'Kernel-Based Reinforcement Learning in Robust Markov Decision Processes', 'Exploring the Landscape of Spatial Robustness', 'Sever: A Robust Meta-Algorithm for Stochastic Optimization', 'On the Convergence and Robustness of Adversarial Training', 'Robust Learning from Untrusted Sources', 'SELFIE: Refurbishing Unclean Samples for Robust Deep Learning', 'Better generalization with less data using robust gradient descent', 'MONK -- Outlier-Robust Mean Embedding Estimation by Median-of-Means', 'Conditioning by adaptive sampling for robust design', 'Robust Inference via Generative Classifiers for Handling Noisy Labels', 'Robustly Disentangled Causal Mechanisms: Validating Deep Representations for Interventional Robustness', 'Warm-starting Contextual Bandits: Robustly Combining Supervised and Bandit Feedback', 'On the Connection Between Adversarial Robustness and Saliency Map Interpretability', 'Defending Against Saddle Point Attack in Byzantine-Robust Distributed Learning', 'Robust Estimation of Tree Structured Gaussian Graphical Models', 'Doubly Robust Joint Learning for Recommendation on Data Missing Not at Random'], 'policy': ['Policy Consolidation for Continual Reinforcement Learning', 'Off-Policy Deep Reinforcement Learning without Exploration', 'Random Expert Distillation: Imitation Learning via Expert Policy Support Estimation', 'Fingerprint Policy Optimisation for Robust Reinforcement Learning', 'Safe Policy Improvement with Baseline Bootstrapping', 'Optimistic Policy Optimization via Multiple Importance Sampling', 'Predictor-Corrector Policy Optimization', 'Importance Sampling Policy Evaluation with an Estimated Behavior Policy', 'Policy Certificates: Towards Accountable Reinforcement Learning', 'Understanding the Impact of Entropy on Policy Optimization', 'Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables', 'Trajectory-Based Off-Policy Deep Reinforcement Learning', 'Distributional Multivariate Policy Evaluation and Exploration with the Bellman GAN', 'Counterfactual Off-Policy Evaluation with Gumbel-Max Structural Causal Models', 'More Efficient Off-Policy Evaluation through Regularized Targeted Learning', 'Hessian Aided Policy Gradient', 'Combining parametric and nonparametric models for off-policy evaluation', 'Transfer of Samples in Policy Search via Multiple Importance Sampling', 'On the Design of Estimators for Bandit Off-Policy Evaluation', 'Population Based Augmentation: Efficient Learning of Augmentation Policy Schedules', 'Beyond Adaptive Submodularity: Approximation Guarantees of Greedy Policy with Adaptive Submodularity Ratio', 'Batch Policy Learning under Constraints', 'Projections for Approximate Policy Iteration Algorithms', 'POLITEX: Regret Bounds for Policy Iteration using Expert Prediction', 'CAB: Continuous Adaptive Blending for Policy Evaluation and Learning'], 'descent': ['A Quantitative Analysis of the Effect of Batch Normalization on Gradient Descent', 'The Effect of Network Width on Stochastic Gradient Descent and Generalization: an Empirical Study', 'Gradient Descent Finds Global Minima of Deep Neural Networks', 'PA-GD: On the Convergence of Perturbed Alternating Gradient Descent to Second-Order Stationary Points for Structured Nonconvex Optimization', 'On Efficient Optimal Transport: An Analysis of Greedy and Accelerated Mirror Descent Algorithms', 'Passed & Spurious: Descent Algorithms and Local Minima in Spiked Matrix-Tensor Models', 'A Block Coordinate Descent Proximal Method for Simultaneous Filtering and Parameter Estimation', 'Probability Functional Descent: A Unifying Perspective on GANs, Variational Inference, and Reinforcement Learning', 'The Anisotropic Noise in Stochastic Gradient Descent: Its Behavior of Escaping from Sharp Minima and Regularization Effects', 'Efficient Dictionary Learning with Gradient Descent', 'Zeno: Distributed Stochastic Gradient Descent with Suspicion-based Fault-tolerance', 'Better generalization with less data using robust gradient descent', 'Nonlinear Stein Variational Gradient Descent for Learning Diversified Mixture Models', 'Quantile Stein Variational Gradient Descent for Batch Bayesian Optimization', 'Learning-to-Learn Stochastic Gradient Descent with Biased Regularization', 'Global Convergence of Block Coordinate Descent in Deep Learning', 'Neuron birth-death dynamics accelerates gradient descent and converges asymptotically', 'Overparameterized Nonlinear Learning: Gradient Descent Takes the Shortest Path?', '$\\texttt{DoubleSqueeze}$: Parallel Stochastic Gradient Descent with Double-pass Error-Compensated Compression', 'Semi-Cyclic Stochastic Gradient Descent'], 'application': ['Flat Metric Minimization with Applications in Generative Modeling', 'Adversarial Generation of Time-Frequency Features with application in audio synthesis', 'Memory-Optimal Direct Convolutions for Maximizing Classification Accuracy in Embedded Applications', 'Optimal Continuous DR-Submodular Maximization and Applications to Provable Mean Field Inference', 'Topological Data Analysis of Decision Boundaries with Application to Model Selection', 'Optimal Transport for structured data with application on graphs', 'Regularization in directable environments with application to Tetris', 'Benefits and Pitfalls of the Exponential Mechanism with Applications to Hilbert Spaces and Functional PCA', 'Projection onto Minkowski Sums with Application to Constrained Learning', 'Molecular Hypergraph Grammar with Its Application to Molecular Optimization', 'Fast Incremental von Neumann Graph Entropy Computation: Theory, Algorithm, and Applications', 'Discriminative Regularization for Latent Variable Models with Applications to Electrocardiography', 'Action Robust Reinforcement Learning and Applications in Continuous Control', 'Target Tracking for Contextual Bandits: Application to Demand Side Management', 'Trimming the $\\ell_1$ Regularizer: Statistical Analysis, Optimization, and Applications to Deep Learning', 'A Multitask Multiple Kernel Learning Algorithm for Survival Analysis with Application to Cancer Biology', 'Submodular Maximization beyond Non-negativity: Guarantees, Fast Algorithms, and Applications', 'Learning from Delayed Outcomes via Proxies with Applications to Recommender Systems'], 'linear': ['Nonlinear Distributional Gradient Temporal-Difference Learning', 'Differentiable Linearized ADMM', 'Sublinear Time Nearest Neighbor Search over Generalized Weighted Space', 'Learning Optimal Linear Regularizers', 'Sublinear Space Private Algorithms Under the Sliding Window Model', 'kernelPSI: a Post-Selection Inference Framework for Nonlinear Variable Selection', 'Switching Linear Dynamics for Variational Bayes Filtering', 'Active Manifolds: A non-linear analogue to Active Subspaces', 'Generalized Linear Rule Models', 'Sensitivity Analysis of Linear Structural Causal Models', 'Complexity of Linear Regions in Deep Networks', 'Sample-Optimal Parametric Q-Learning Using Linearly Additive Features', 'Stay With Me: Lifetime Maximization Through Heteroscedastic Linear Bandits With Reneging', 'Bilinear Bandits with Low-rank Structure', 'Distributed Learning with Sublinear Communication', 'On the Linear Speedup Analysis of Communication Efficient Momentum SGD for Distributed Non-Convex Optimization', 'Near optimal finite time identification of arbitrary linear dynamical systems', 'On the statistical rate of nonlinear recovery in generative models with heavy-tailed data', 'Accelerated Linear Convergence of Stochastic Momentum Methods in Wasserstein Distances', 'Nonlinear Stein Variational Gradient Descent for Learning Diversified Mixture Models', 'Efficient Amortised Bayesian Inference for Hierarchical and Nonlinear Dynamical Systems', 'Learning Fast Algorithms for Linear Transforms Using Butterfly Factorizations', 'Breaking the Softmax Bottleneck via Learnable Monotonic Pointwise Non-linearities', 'Loss Landscapes of Regularized Linear Autoencoders', 'Iterative Linearized Control: Stable Algorithms and Complexity Guarantees', 'Finite-Time Analysis of Distributed TD(0) with Linear Function Approximation on Multi-Agent Reinforcement Learning', 'Width Provably Matters in Optimization for Deep Linear Neural Networks', 'Overparameterized Nonlinear Learning: Gradient Descent Takes the Shortest Path?', 'On Sparse Linear Regression in the Local Differential Privacy Model', 'Adaptive Scale-Invariant Online Algorithms for Learning Linear Models', 'Bandit Multiclass Linear Classification: Efficient Algorithms for the Separable Case', 'Learning Linear-Quadratic Regulators Efficiently with only $\\sqrt{T}$ Regret', 'Sublinear quantum algorithms for training linear and kernel-based classifiers', 'Partially Linear Additive Gaussian Graphical Models', "Linear-Complexity Data-Parallel Earth Mover's Distance Approximations"], 'kernel': ['Online learning with kernel losses', 'Nearest Neighbor and Kernel Survival Analysis: Nonasymptotic Error Bounds and Strong Consistency Rates', 'Uniform Convergence Rate of the Kernel Density Estimator Adaptive to Intrinsic Volume Dimension', 'Optimality Implies Kernel Sum Classifiers are Statistically Efficient', 'Learning deep kernels for exponential family densities', 'Bayesian Deconditional Kernel Mean Embeddings', 'A Kernel Perspective for Regularizing Deep Neural Networks', 'Rehashing Kernel Evaluation in High Dimensions', 'Large-Scale Sparse Kernel Canonical Correlation Analysis', 'A Kernel Theory of Modern Data Augmentation', 'kernelPSI: a Post-Selection Inference Framework for Nonlinear Variable Selection', 'Scalable Learning in Reproducing Kernel Krein Spaces', 'Kernel-Based Reinforcement Learning in Robust Markov Decision Processes', 'Kernel Mean Matching for Content Addressability of GANs', 'The Kernel Interaction Trick: Fast Bayesian Discovery of Pairwise Interactions in High Dimensions', 'A Multitask Multiple Kernel Learning Algorithm for Survival Analysis with Application to Cancer Biology', 'Incremental Randomized Sketching for Online Kernel Learning', 'Sublinear quantum algorithms for training linear and kernel-based classifiers', 'Kernel Normalized Cut: a Theoretical Revisit', 'Tight Kernel Query Complexity of Kernel Ridge Regression and Kernel $k$-means Clustering'], 'estimation': ['Random Expert Distillation: Imitation Learning via Expert Policy Support Estimation', 'Generalized Approximate Survey Propagation for High-Dimensional Estimation', 'Boosted Density Estimation Remastered', 'Random Matrix Improved Covariance Estimation for a Large Class of Metrics', 'Doubly-Competitive Distribution Estimation', 'Graphical-model based estimation and inference for differential privacy', 'Communication Complexity in Locally Private Distribution Estimation and Heavy Hitters', 'Maximum Likelihood Estimation for Learning Populations of Parameters', 'Ithemal: Accurate, Portable and Fast Basic Block Throughput Estimation using Deep Neural Networks', 'A Block Coordinate Descent Proximal Method for Simultaneous Filtering and Parameter Estimation', 'A Baseline for Any Order Gradient Estimation in Stochastic Computation Graphs', 'ME-Net: Towards Effective Adversarial Robustness with Matrix Estimation', 'MONK -- Outlier-Robust Mean Embedding Estimation by Median-of-Means', 'Approximation and non-parametric estimation of ResNet-type convolutional neural networks', 'Robust Estimation of Tree Structured Gaussian Graphical Models', 'Fast and Stable Maximum Likelihood Estimation for Incomplete Multinomial Models'], 'structured': ['Graph Matching Networks for Learning the Similarity of Graph Structured Objects', 'PA-GD: On the Convergence of Perturbed Alternating Gradient Descent to Second-Order Stationary Points for Structured Nonconvex Optimization', 'Feature Grouping as a Stochastic Regularizer for High-Dimensional Structured Data', 'Optimal Transport for structured data with application on graphs', 'Leveraging Low-Rank Relations Between Surrogate Tasks in Structured Prediction', 'Graph Element Networks: adaptive, structured computation and memory', 'EigenDamage: Structured Pruning in the Kronecker-Factored Eigenbasis', 'SOLAR: Deep Structured Representations for Model-Based Reinforcement Learning', 'Structured agents for physical construction', 'Open Vocabulary Learning on Source Code with a Graph-Structured Cache', 'Active Learning for Probabilistic Structured Prediction of Cuts and Matchings', 'Learning Structured Decision Problems with Unawareness', 'Functional Transparency for Structured Data: a Game-Theoretic Approach', 'Dropout as a Structured Shrinkage Prior', 'Stochastic Iterative Hard Thresholding for Graph-structured Sparsity Optimization', 'Hierarchically Structured Meta-learning', 'Robust Estimation of Tree Structured Gaussian Graphical Models'], 'understanding': ['Shallow-Deep Networks: Understanding and Mitigating Network Overthinking', 'Understanding MCMC Dynamics as Flows on the Wasserstein Space', 'Understanding and Controlling Memory in Recurrent Neural Networks', 'Toward Understanding the Importance of Noise in Training Neural Networks', 'Understanding the Impact of Entropy on Policy Optimization', 'Understanding Geometry of Encoder-Decoder CNNs', 'Understanding the Origins of Bias in Word Embeddings', 'Understanding and Utilizing Deep Neural Networks Trained with Noisy Labels', 'Understanding and Accelerating Particle-Based Variational Inference', 'Towards Understanding Knowledge Distillation', 'Understanding and correcting pathologies in the training of learned optimizers', 'Towards a Deep and Unified Understanding of Deep Neural Models in NLP', 'Understanding Impacts of High-Order Loss Approximations and Features in Deep Learning Interpretation', 'Understanding Priors in Bayesian Neural Networks at the Unit Level', 'Analogies Explained: Towards Understanding Word Embeddings']};
+
+    var name_10 = Object.getOwnPropertyNames(allPapers);
+
+    var box = document.getElementById("box");
+
+    var liObjs = document.getElementsByTagName("li");
+
+    //遍历li标签，为每个标签创建事件
+    for (var i = 0; i < liObjs.length; i++) {
+        //添加li标签的内容
+        liObjs[i].innerText = name_10[i];
+        // liObjs[i].id = i;
+        //添加鼠标悬停事件
+        liObjs[i].onmouseover = function () {
+            var liName = this.innerText;
+            if (my$(liName + "div")) {
+                my$("box").removeChild(my$(liName + "div"));
+            }
+            var paperList = allPapers[liName];
+
+            //创建div对象
+            var divObj = document.createElement("div");
+            divObj.className = "childBox";
+            divObj.id = liName + "div";
+            //创建p对象
+            //限定显示的论文数量不超过15
+            var paperLength = paperList.length < 15 ? paperList.length : 15;
+            for (var i = 0; i < paperLength; i++) {
+                var pObj = document.createElement("p");
+                pObj.innerText = paperList[i];
+                divObj.appendChild(pObj);
+            }
+            box.appendChild(divObj);
+        };
+        //添加鼠标离开事件
+        liObjs[i].onmouseout = function () {
+            var liName = this.innerText;
+            if (my$(liName + "div")) {
+                my$("box").removeChild(my$(liName + "div"));
             }
         }
-    ],
-    "legend": [
-        {
-            "data": [
-                "model",
-                "reinforcement",
-                "adversarial",
-                "optimization",
-                "gradient",
-                "data",
-                "graph",
-                "inference",
-                "stochastic",
-                "algorithm",
-                "efficient",
-                "generative",
-                "bayesian",
-                "variational",
-                "representation",
-                "optimal",
-                "training",
-                "analysis",
-                "adaptive",
-                "function",
-                "online",
-                "robust",
-                "policy",
-                "descent",
-                "application",
-                "linear",
-                "kernel",
-                "estimation",
-                "structured",
-                "understanding"
-            ],
-            "selected": {},
-            "show": true,
-            "left": "0%",
-            "top": "10%",
-            "orient": "vertical"
-        }
-    ],
-    "tooltip": {
-        "show": true,
-        "trigger": "item",
-        "triggerOn": "mousemove|click",
-        "axisPointer": {
-            "type": "line"
-        },
-        "textStyle": {
-            "fontSize": 14
-        },
-        "borderWidth": 0
-    },
-    "title": [
-        {
-            "text": "ICML-2019"
-        }
-    ]
-};
-        chart_42aefc23eefe42459abd742ab0fa3a70.setOption(option_42aefc23eefe42459abd742ab0fa3a70);
-    </script>
+    }
+
+
+</script>
+<script>
+    my$("btn").onclick=function () {
+        window.location.href="ICML历年投稿论文数情况.html";
+    }
+</script>
 </body>
 </html>
