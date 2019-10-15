@@ -3,84 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>ACL 2018 各类别饼图</title>
+    <link rel="stylesheet" href="../css/base.css">
     <script type="text/javascript" src="../js/echarts.min.js"></script>
-    <style>
-        #box {
-            position: absolute;
-            top: 40px;
-            right: 120px;
-        }
-
-        ul {
-            padding: 10px;
-            margin: 0;
-            border: 1px solid #ccc;
-        }
-
-        ul li {
-            font-size: 30px;
-            height: 60px;
-            line-height: 60px;
-            text-align: center;
-            cursor: pointer;
-            /*margin-top: 10px;*/
-            list-style: none;
-        }
-
-        ul li:nth-of-type(5n) {
-            color: #C23531;
-        }
-
-        ul li:nth-of-type(5n+1) {
-            color: #2F4554;
-        }
-
-        ul li:nth-of-type(5n+2) {
-            color: #61A0A8;
-        }
-
-        ul li:nth-of-type(5n+3) {
-            color: #D48265;
-        }
-
-        ul li:nth-of-type(5n+4) {
-            color: #749F83;
-        }
-
-        .childBox {
-            position: absolute;
-            background-color: #FFF;
-            border: 1px solid #ccc;
-            width: 1000px;
-            left: -1020px;
-            top: 0;
-            z-index: 999;
-            padding-left: 10px;
-        }
-
-        .childBox p {
-            color: #749F83;
-        }
-
-        input {
-            position: absolute;
-            outline: none;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-            width: 100px;
-            height: 40px;
-            bottom: 10%;
-            left: 35%;
-            transform: translate(-50%, -50%);
-        }
-
-        em {
-            color: red;
-            font-style: normal;
-        }
-    </style>
 </head>
 <body>
 <div id="box">
@@ -362,58 +286,12 @@
     for (var i = 0; i < liObjs.length; i++) {
         //添加li标签的内容
         liObjs[i].innerText = name_10[i];
-        // liObjs[i].id = i;
-        //添加鼠标悬停事件
-        liObjs[i].onmouseover = function () {
-            //获取关键字并找到关键字对应的论文列表
-            var liName = this.innerText;
-            if (my$(liName + "div")) {
-                my$("box").removeChild(my$(liName + "div"));
-            }
-            var paperList = allPapers[liName];
 
-            //创建div对象
-            var divObj = document.createElement("div");
-            divObj.className = "childBox";
-            divObj.id = liName + "div";
-            //创建p对象
-            //限定显示的论文数量不超过15
-            var paperLength = paperList.length < 15 ? paperList.length : 15;
-            for (var i = 0; i < paperLength; i++) {
-                //为每一个标题创建一个p标签
-                var pObj = document.createElement("p");
-                divObj.appendChild(pObj);
-                // pObj.innerHTML = paperList[i];
-                //将关键字首字母大写
-                var liNameUpper = liName.replace(liName[0], liName[0].toUpperCase());
-                // 获取标题中关键词的位置
-                var title = paperList[i];
-                var start = title.toLowerCase().indexOf(liName);
-                var end = start + liName.length;
-                //将标题分割为三个部分
-                var spanObj1 = document.createElement("span");
-                spanObj1.innerText = title.slice(0, start);
-                var spanObj2 = document.createElement("span");
-                spanObj2.innerText = title.slice(end, title.length);
-                var emObj = document.createElement("em");
-                emObj.innerText = title.indexOf(liName) > 0 ? liName : liNameUpper;
-                //添加入p标签
-                pObj.appendChild(spanObj1);
-                pObj.appendChild(emObj);
-                pObj.appendChild(spanObj2);
-                // pObj.innerHTML = pObj.innerHTML.replace(liName, newLiName).replace(liNameUpper, "<em>liName</em>");
-                // pObj.innerHTML=pObj.innerHTML.replace(/liName/igm,'<font color="red">$1</font>');
-            }
-            box.appendChild(divObj);
-        };
+        //添加鼠标悬停事件
+        liObjs[i].onmouseover = mouseOverHandle;
 
         //添加鼠标离开事件
-        liObjs[i].onmouseout = function () {
-            var liName = this.innerText;
-            if (my$(liName + "div")) {
-                my$("box").removeChild(my$(liName + "div"));
-            }
-        }
+        liObjs[i].onmouseout = mouseOutHandle;
     }
 
 
