@@ -3,364 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <title>ACL 2017 词云图</title>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
-        <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
-
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script type="text/javascript" src="../js/echarts-wordcloud.min.js"></script>
 </head>
 <body>
-    <div id="1e9229dc37804274825f550528ea2d76" class="chart-container" style="width:900px; height:500px;"></div>
-    <script>
-        var chart_1e9229dc37804274825f550528ea2d76 = echarts.init(
-            document.getElementById('1e9229dc37804274825f550528ea2d76'), 'white', {renderer: 'canvas'});
-        var option_1e9229dc37804274825f550528ea2d76 = {
-    "animation": true,
-    "animationThreshold": 2000,
-    "animationDuration": 1000,
-    "animationEasing": "cubicOut",
-    "animationDelay": 0,
-    "animationDurationUpdate": 300,
-    "animationEasingUpdate": "cubicOut",
-    "animationDelayUpdate": 0,
-    "color": [
-        "#c23531",
-        "#2f4554",
-        "#61a0a8",
-        "#d48265",
-        "#749f83",
-        "#ca8622",
-        "#bda29a",
-        "#6e7074",
-        "#546570",
-        "#c4ccd3",
-        "#f05b72",
-        "#ef5b9c",
-        "#f47920",
-        "#905a3d",
-        "#fab27b",
-        "#2a5caa",
-        "#444693",
-        "#726930",
-        "#b2d235",
-        "#6d8346",
-        "#ac6767",
-        "#1d953f",
-        "#6950a1",
-        "#918597"
-    ],
-    "series": [
-        {
-            "type": "wordCloud",
-            "shape": "circle",
-            "rotationRange": [
-                -90,
-                90
-            ],
-            "rotationStep": 45,
-            "girdSize": 20,
-            "sizeRange": [
-                20,
-                100
-            ],
-            "data": [
-                {
-                    "name": "language",
-                    "value": 65,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(124,136,27)"
+<div id="1e9229dc37804274825f550528ea2d76" class="chart-container" style="width:900px; height:500px;"></div>
+<script>
+    var chart_1e9229dc37804274825f550528ea2d76 = echarts.init(
+        document.getElementById('1e9229dc37804274825f550528ea2d76'), 'white', {renderer: 'canvas'});
+    var option_1e9229dc37804274825f550528ea2d76 = {
+        "animation": true,
+        "animationThreshold": 2000,
+        "animationDuration": 1000,
+        "animationEasing": "cubicOut",
+        "animationDelay": 0,
+        "animationDurationUpdate": 300,
+        "animationEasingUpdate": "cubicOut",
+        "animationDelayUpdate": 0,
+        "color": [
+            "#c23531",
+            "#2f4554",
+            "#61a0a8",
+            "#d48265",
+            "#749f83",
+            "#ca8622",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3",
+            "#f05b72",
+            "#ef5b9c",
+            "#f47920",
+            "#905a3d",
+            "#fab27b",
+            "#2a5caa",
+            "#444693",
+            "#726930",
+            "#b2d235",
+            "#6d8346",
+            "#ac6767",
+            "#1d953f",
+            "#6950a1",
+            "#918597"
+        ],
+        "series": [
+            {
+                "type": "wordCloud",
+                "shape": "circle",
+                "rotationRange": [
+                    -90,
+                    90
+                ],
+                "rotationStep": 45,
+                "girdSize": 20,
+                "sizeRange": [
+                    20,
+                    100
+                ],
+                "data": [
+                    {
+                        "name": "language",
+                        "value": 65,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(124,136,27)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "model",
+                        "value": 57,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(8,124,124)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "translation",
+                        "value": 52,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(46,115,87)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "machine",
+                        "value": 49,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(10,159,14)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "value": 47,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(129,59,146)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "embedding",
+                        "value": 47,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(49,3,118)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "generation",
+                        "value": 44,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(120,10,24)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "word",
+                        "value": 41,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(34,129,55)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "question",
+                        "value": 34,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(43,73,132)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "representation",
+                        "value": 33,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(100,119,130)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "relation",
+                        "value": 31,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(3,20,92)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "semantic",
+                        "value": 31,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(129,21,126)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "modeling",
+                        "value": 30,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(23,79,24)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "unsupervised",
+                        "value": 30,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(144,119,81)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "parsing",
+                        "value": 29,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(93,16,131)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "graph",
+                        "value": 28,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(95,43,87)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "dialogue",
+                        "value": 25,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(49,40,147)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "answering",
+                        "value": 25,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(87,83,43)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "knowledge",
+                        "value": 24,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(35,29,148)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "attention",
+                        "value": 23,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(154,40,86)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "detection",
+                        "value": 23,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(108,134,87)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "summarization",
+                        "value": 23,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(13,153,27)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "extraction",
+                        "value": 23,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(54,116,150)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "natural",
+                        "value": 22,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(16,55,36)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "sentence",
+                        "value": 22,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(130,60,136)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "toward",
+                        "value": 22,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(39,70,151)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "entity",
+                        "value": 20,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(121,22,8)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "classification",
+                        "value": 19,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(60,17,9)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "reading",
+                        "value": 18,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(28,83,41)"
+                            }
+                        }
+                    },
+                    {
+                        "name": "comprehension",
+                        "value": 18,
+                        "textStyle": {
+                            "normal": {
+                                "color": "rgb(4,153,149)"
+                            }
                         }
                     }
-                },
-                {
-                    "name": "model",
-                    "value": 57,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(8,124,124)"
-                        }
-                    }
-                },
-                {
-                    "name": "translation",
-                    "value": 52,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(46,115,87)"
-                        }
-                    }
-                },
-                {
-                    "name": "machine",
-                    "value": 49,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(10,159,14)"
-                        }
-                    }
-                },
-                {
-                    "name": "text",
-                    "value": 47,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(129,59,146)"
-                        }
-                    }
-                },
-                {
-                    "name": "embedding",
-                    "value": 47,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(49,3,118)"
-                        }
-                    }
-                },
-                {
-                    "name": "generation",
-                    "value": 44,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(120,10,24)"
-                        }
-                    }
-                },
-                {
-                    "name": "word",
-                    "value": 41,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(34,129,55)"
-                        }
-                    }
-                },
-                {
-                    "name": "question",
-                    "value": 34,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(43,73,132)"
-                        }
-                    }
-                },
-                {
-                    "name": "representation",
-                    "value": 33,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(100,119,130)"
-                        }
-                    }
-                },
-                {
-                    "name": "relation",
-                    "value": 31,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(3,20,92)"
-                        }
-                    }
-                },
-                {
-                    "name": "semantic",
-                    "value": 31,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(129,21,126)"
-                        }
-                    }
-                },
-                {
-                    "name": "modeling",
-                    "value": 30,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(23,79,24)"
-                        }
-                    }
-                },
-                {
-                    "name": "unsupervised",
-                    "value": 30,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(144,119,81)"
-                        }
-                    }
-                },
-                {
-                    "name": "parsing",
-                    "value": 29,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(93,16,131)"
-                        }
-                    }
-                },
-                {
-                    "name": "graph",
-                    "value": 28,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(95,43,87)"
-                        }
-                    }
-                },
-                {
-                    "name": "dialogue",
-                    "value": 25,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(49,40,147)"
-                        }
-                    }
-                },
-                {
-                    "name": "answering",
-                    "value": 25,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(87,83,43)"
-                        }
-                    }
-                },
-                {
-                    "name": "knowledge",
-                    "value": 24,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(35,29,148)"
-                        }
-                    }
-                },
-                {
-                    "name": "attention",
-                    "value": 23,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(154,40,86)"
-                        }
-                    }
-                },
-                {
-                    "name": "detection",
-                    "value": 23,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(108,134,87)"
-                        }
-                    }
-                },
-                {
-                    "name": "summarization",
-                    "value": 23,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(13,153,27)"
-                        }
-                    }
-                },
-                {
-                    "name": "extraction",
-                    "value": 23,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(54,116,150)"
-                        }
-                    }
-                },
-                {
-                    "name": "natural",
-                    "value": 22,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(16,55,36)"
-                        }
-                    }
-                },
-                {
-                    "name": "sentence",
-                    "value": 22,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(130,60,136)"
-                        }
-                    }
-                },
-                {
-                    "name": "toward",
-                    "value": 22,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(39,70,151)"
-                        }
-                    }
-                },
-                {
-                    "name": "entity",
-                    "value": 20,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(121,22,8)"
-                        }
-                    }
-                },
-                {
-                    "name": "classification",
-                    "value": 19,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(60,17,9)"
-                        }
-                    }
-                },
-                {
-                    "name": "reading",
-                    "value": 18,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(28,83,41)"
-                        }
-                    }
-                },
-                {
-                    "name": "comprehension",
-                    "value": 18,
-                    "textStyle": {
-                        "normal": {
-                            "color": "rgb(4,153,149)"
-                        }
-                    }
-                }
-            ]
-        }
-    ],
-    "legend": [
-        {
-            "data": [],
-            "selected": {},
-            "show": true
-        }
-    ],
-    "tooltip": {
-        "show": true,
-        "trigger": "item",
-        "triggerOn": "mousemove|click",
-        "axisPointer": {
-            "type": "line"
+                ]
+            }
+        ],
+        "legend": [
+            {
+                "data": [],
+                "selected": {},
+                "show": true
+            }
+        ],
+        "tooltip": {
+            "show": true,
+            "trigger": "item",
+            "triggerOn": "mousemove|click",
+            "axisPointer": {
+                "type": "line"
+            },
+            "textStyle": {
+                "fontSize": 14
+            },
+            "borderWidth": 0
         },
-        "textStyle": {
-            "fontSize": 14
-        },
-        "borderWidth": 0
-    },
-    "title": [
-        {
-            "text": "ACL-2019"
-        }
-    ]
-};
-        chart_1e9229dc37804274825f550528ea2d76.setOption(option_1e9229dc37804274825f550528ea2d76);
-    </script>
+        "title": [
+            {
+                "text": "ACL-2019"
+            }
+        ]
+    };
+    chart_1e9229dc37804274825f550528ea2d76.setOption(option_1e9229dc37804274825f550528ea2d76);
+</script>
 </body>
 </html>
