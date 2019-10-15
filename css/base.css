@@ -53,7 +53,8 @@ ul li:nth-of-type(5n+4) {
 }
 
 .childBox p {
-    color: #749F83;
+    color: black;
+    background-color: #eeeeee;
 }
 
 input {
